@@ -146,4 +146,4 @@ function insertData() {
 }
 // add function to user's cupboard via userID
 
-insertData();
+deleteAll();
