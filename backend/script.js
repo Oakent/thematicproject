@@ -1,4 +1,5 @@
 const { MongoClient } = require("mongodb");
+const mongoose = require("mongoose");
 
 async function deleteAll() {
   const uri =
