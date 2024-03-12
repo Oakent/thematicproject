@@ -1,0 +1,13 @@
+.NavBar{
+    display: grid;
+    grid-template-columns: 1fr 100fr 1fr;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.Search{
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    gap: 0.5rem;
+    align-items: center;
+}

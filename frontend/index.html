@@ -1,39 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href = "/frontend/pico-main/css/pico.classless.min.css">
-    <link rel="stylesheet" href="/frontend/pico-main/css/pico.colors.min.css" />
+    <link rel = "stylesheet" href = "/frontend/styles.css" >
     <title>Document</title>
 </head>
+
 <body>
-    <div class = "pico-background-sand-150">
-        <h1  class="pico-color-pink-500">Hello world!</h1>
-        <details>
-            <summary>Flavourings</summary>
-            <p>This is the first accordion</p>
-        </details>
-        <details>
-            <summary>Carbohydrates</summary>
-            <p>This is the first accordion</p>
-        </details>
-        <details>
-            <summary>Sweet</summary>
-            <p>This is the first accordion</p>
-        </details>
-        <details>
-            <summary>Dairy</summary>
-            <p>This is the first accordion</p>
-        </details>
-        <details>
-            <summary>Fruit and Veg</summary>
-            <p>This is the first accordion</p>
-        </details>
-        <details>
-            <summary>Meat</summary>
-            <p>This is the first accordion</p>
-        </details>
-    </div>
+    <main class = "container-fluid">        
+        <div class="NavBar">
+            <button type = "button" class = "btn" id = "mainOptions">MainOptions</button>
+            <form class = "Search">
+              <input type = "text" placeholder = "Search recipes..." class = "searchInput">
+              <button type = "submit" class = "btn" id = "searchBtn">Search</button>
+            </form>
+            <button type="button" class="btn" id="searchOptions">SearchOptions</button>
+        </div>
+ 
+        <div class = "Shelves">
+            <details>
+                <summary>Flavourings</summary>
+                <p>Flavourings accordion</p>
+            </details>
+            <details>
+                <summary>Carbohydrates</summary>
+                <p>Carbs accordion</p>
+            </details>
+            <details>
+                <summary>Sweet</summary>
+                <p>Sweet accordion</p>
+            </details>
+        </div>
+
+        <div class = "Fridge">
+            <details>
+                <summary>Dairy</summary>
+                <p>Dairy accordion</p>
+            </details>
+            <details>
+                <summary>Fruit and Veg</summary>
+                <p>F+V accordion</p>
+            </details>
+            <details>
+                <summary>Meat</summary>
+                <p>Meat accordion</p>
+            </details>
+        </div>
+    </main>
 </body>
 </html>
