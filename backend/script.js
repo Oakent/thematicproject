@@ -2,10 +2,7 @@ const { MongoClient } = require("mongodb");
 const mongoose = require("mongoose");
 const config = require("./config");
 const mongoURI = config.mongoURI;
-const User = require("./models/user");
-//usefull comment
-//comment 2
-//comment 3
+
 
 
 
