@@ -2,9 +2,17 @@ const { MongoClient } = require("mongodb");
 const mongoose = require("mongoose");
 const config = require("./config");
 const mongoURI = config.mongoURI;
-//really useless comment
+const User = require("./models/user");
+//usefull comment
+//comment 2
+//comment 3
+
+
+
 async function deleteAll() {
-  const client = new MongoClient(mongoURI);
+  const uri =
+    "mongodb+srv://oakent:aJhq8AJdURJUyf1y@thematicproj.9jc9drl.mongodb.net/?retryWrites=true&w=majority&appName=ThematicProj";
+  const client = new MongoClient(uri);
   try {
     await client.connect();
     const database = client.db("recipeFinder");
@@ -23,7 +31,9 @@ async function deleteAll() {
 }
 
 async function insertUser() {
-  const client = new MongoClient(mongoURI);
+  const uri =
+    "mongodb+srv://oakent:aJhq8AJdURJUyf1y@thematicproj.9jc9drl.mongodb.net/?retryWrites=true&w=majority&appName=ThematicProj";
+  const client = new MongoClient(uri);
   try {
     await client.connect();
     const database = client.db("recipeFinder");
@@ -42,7 +52,9 @@ async function insertUser() {
 }
 
 async function insertCupboard() {
-  const client = new MongoClient(mongoURI);
+  const uri =
+    "mongodb+srv://oakent:aJhq8AJdURJUyf1y@thematicproj.9jc9drl.mongodb.net/?retryWrites=true&w=majority&appName=ThematicProj";
+  const client = new MongoClient(uri);
   try {
     await client.connect();
     const database = client.db("recipeFinder");
@@ -78,7 +90,9 @@ async function insertCupboard() {
 }
 
 async function insertRecipe() {
-  const client = new MongoClient(mongoURI);
+  const uri =
+    "mongodb+srv://oakent:aJhq8AJdURJUyf1y@thematicproj.9jc9drl.mongodb.net/?retryWrites=true&w=majority&appName=ThematicProj";
+  const client = new MongoClient(uri);
 
   try {
     await client.connect();
