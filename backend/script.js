@@ -1,5 +1,7 @@
 const { MongoClient } = require("mongodb");
 const mongoose = require("mongoose");
+const config = require("./config");
+const mongoURI = config.mongoURI;
 //useless comment
 async function deleteAll() {
   const uri =

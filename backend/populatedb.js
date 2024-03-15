@@ -4,14 +4,14 @@ const Recipe = require("./models/recipe");
 const Ingredient = require("./models/ingredient");
 const Cupboard = require("./models/cupboard");
 
+const config = require("./config");
+const mongoURI = config.mongoURI;
+
 // Connect to MongoDB
-mongoose.connect(
-  "mongodb+srv://oakent:aJhq8AJdURJUyf1y@thematicproj.9jc9drl.mongodb.net/?retryWrites=true&w=majority&appName=ThematicProj",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 db.once("open", async () => {
