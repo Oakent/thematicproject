@@ -1,5 +1,16 @@
 const User = require('./models/user');
+const User = require('.populatedb.js');
 
+const config = require("./config");
+const mongoURI = config.mongoURI;
+
+// Connect to MongoDB
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+const db = mongoose.connection;
+ 
 async function addUser(name, email, password) {
   try {
     // check if user with the same email already exists
@@ -20,5 +31,9 @@ async function addUser(name, email, password) {
     throw err;
   }
 }
+
+newUser("luke"," luke@email ", "password");
+
+print("user added");
 
 module.exports = { addUser };

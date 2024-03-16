@@ -2,5 +2,8 @@
   "dependencies": {
     "mongodb": "6.5",
     "mongoose": "^8.2.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
