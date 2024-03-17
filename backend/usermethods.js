@@ -1,5 +1,6 @@
 const User = require('./models/user');
-const User = require('.populatedb.js');
+const populateDb = require('./populatedb.js');
+const mongoose = require('mongoose');
 
 const config = require("./config");
 const mongoURI = config.mongoURI;
@@ -32,8 +33,10 @@ async function addUser(name, email, password) {
   }
 }
 
-newUser("luke"," luke@email ", "password");
+addUser("luke","luke@email", "password")
+  .then(user => console.log('User added:', user))
+  .catch(err => console.error(err));
 
-print("user added");
+  console.log("user added");
 
 module.exports = { addUser };
