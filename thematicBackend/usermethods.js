@@ -13,10 +13,10 @@ const db = mongoose.connection;
 async function addUser(name, email, password) {
   try {
     // check if user with the same email already exists
-    const existingUser = await User.findOne({ Email: email }).lean();
-    if (existingUser) {
-      throw new Error("User with this email already exists");
-    }
+    const existingUser = await User.findOne({ email });
+if (existingUser) {
+  throw new Error('User with this email already exists');
+}
 
     // create new user document
     const newUser = new User({
@@ -36,6 +36,12 @@ async function addUser(name, email, password) {
 }
 
 addUser("luke", "luke@email", "password")
+  .then((user) => console.log("User added:", user))
+  .catch((err) => console.error(err));
+
+module.exports = { addUser };
+
+addUser("tasha", "tasha@gmail", "password")
   .then((user) => console.log("User added:", user))
   .catch((err) => console.error(err));
 
