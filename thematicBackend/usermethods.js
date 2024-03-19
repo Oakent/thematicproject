@@ -1,33 +1,35 @@
-const User = require("./models/user");
 const mongoose = require("mongoose");
-
+const User = require("./models/user");
 const config = require("./config");
-const mongoURI = config.mongoURI;
 
+const mongoURI = config.mongoURI;
 console.log("mongoURI", mongoURI);
 
 // Connect to MongoDB
-mongoose.connect(mongoURI);
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 const db = mongoose.connection;
-
-async function addUser(name, email, password) {
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+async function addUser(Username, Email, Password) {
   try {
-    // check if user with the same email already exists
-    const existingUser = await User.findOne({ email });
-if (existingUser) {
-  throw new Error('User with this email already exists');
-}
+    // Check if a user with the same email already exists
+    const existingUser = await User.findOne({ Email }); // Ensure field names are lowercase if your model defines them that way
+    if (existingUser) {
+      throw new Error('User with this email already exists');
+    }
 
-    // create new user document
+    // Create new user document
     const newUser = new User({
-      Username: name,
-      Email: email,
-      Password: password,
+      Username, // Make sure these match the case and spelling of your schema definitions
+      Email,
+      Password,
     });
 
-    // save user to the database
+    // Save user to the database
     const savedUser = await newUser.save();
-
+    console.log("User added:", savedUser);
     return savedUser;
   } catch (err) {
     console.error(err);
@@ -35,14 +37,40 @@ if (existingUser) {
   }
 }
 
-addUser("luke", "luke@email", "password")
-  .then((user) => console.log("User added:", user))
-  .catch((err) => console.error(err));
 
-module.exports = { addUser };
+async function removeUser(Email) {
+  try {
+    // Check if a user with the given email exists
+    const existingUser = await User.findOne({ Email });
+    if (!existingUser) {
+      throw new Error('User with this email does not exist');
+    }
 
-addUser("tasha", "tasha@gmail", "password")
-  .then((user) => console.log("User added:", user))
-  .catch((err) => console.error(err));
+    // Remove the user from the database
+    const removedUser = await User.findOneAndDelete({ Email });
+    console.log("User removed:", removedUser);
+    return removedUser;
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+}
 
-module.exports = { addUser };
+async function testRemoveUser() {
+  try {
+    // Add a user
+    const user = await addUser("test", "test@email.com", "password");
+    console.log("User added:", user);
+
+    // Remove the user
+    const removedUser = await removeUser("test@email.com");
+    console.log("User removed:", removedUser);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+testRemoveUser();
+
+// addUser("luke", "l@gmail.com", "password");
+removeUser("tasha@gmail");
