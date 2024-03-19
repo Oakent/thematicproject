@@ -10,29 +10,39 @@
 </head>
 
 <body>
-    <main class = "container-fluid">        
+    <main>        
         <div class="NavBar">
-            <button type = "button" class = "btn" id = "mainOptions">MainOptions</button>
-            <form class = "Search">
-              <input type = "text" placeholder = "Search recipes..." class = "searchInput">
-              <button type = "submit" class = "btn" id = "searchBtn">Search</button>
-            </form>
-            <button type="button" class="btn" id="searchOptions">SearchOptions</button>
+            <button type = "button" class = "Btn" id = "settings">
+                <img src="/frontend/img/settings.svg" alt="Settings Button">
+            </button>
+            <input type = "text" placeholder = "Search recipes..." class = "SearchInput">
+            <button type = "button" class = "Btn" id = "searchBtn">
+                <img src="/frontend/img/search.svg" alt="Search Button">
+            </button>
+            <button type = "button" class = "Btn" id="searchAdj">
+                <img src="/frontend/img/adjustments.svg" alt = "Search Adjustments">
+            </button>
         </div>
  
-        <div class = "Shelves">
-            <details>
-                <summary>Flavourings</summary>
-                <p>Flavourings accordion</p>
-            </details>
-            <details>
-                <summary>Carbohydrates</summary>
-                <p>Carbs accordion</p>
-            </details>
-            <details>
-                <summary>Sweet</summary>
-                <p>Sweet accordion</p>
-            </details>
+        <div class = "Shelves"> 
+                    <div class = "Shelf" id ="shelfSide"></div>
+                    <details class = "Shelf">
+                        <summary>Flavourings</summary>
+                        <p>Flavourings accordion</p>
+                    </details>
+                    <div class = "ShelvesBottom"></div>
+
+                    <details class = "Shelf">
+                        <summary>Carbohydrates</summary>
+                        <p>Carbs accordion</p>
+                    </details>
+                    <div class = "ShelvesBottom"></div>
+
+                    <details class ="Shelf">
+                        <summary>Sweet</summary>
+                        <p>Sweet accordion</p>
+                    </details>
+            <div class = "ShelvesBottom"></div>
         </div>
 
         <div class = "Fridge">
@@ -40,6 +50,8 @@
                 <summary>Dairy</summary>
                 <p>Dairy accordion</p>
             </details>
+
+
             <details>
                 <summary>Fruit and Veg</summary>
                 <p>F+V accordion</p>
