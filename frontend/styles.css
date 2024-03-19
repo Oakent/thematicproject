@@ -8,30 +8,31 @@ input[type="submit"] {
 
 /* Make text inputs narrower */
 input[type="text"]{
-  width: 60%; /* or any desired width */
+  width: 40%; /* or any desired width */
+  margin: 0 auto;
 }
 
 .NavBar{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .SearchInput {
-    background-color: #fff;
-    border-style: solid;
-    border-width: 2px;
-    border-color: black ;
-    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
-    color: #41403e;
-    cursor: text;
-    font-family: 'Courier New', Courier, monospace;
-    border-bottom-right-radius: 15px 255px;
-    border-bottom-left-radius: 225px 15px;
-    border-top-right-radius: 255px 15px;
-    border-top-left-radius: 15px 225px;
-    flex: 0.5 0.1 auto;
+  background-color: #fff;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black ;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  color: #41403e;
+  cursor: text;
+  font-family: 'Courier New', Courier, monospace;
+  border-bottom-right-radius: 15px 255px;
+  border-bottom-left-radius: 225px 15px;
+  border-top-right-radius: 255px 15px;
+  border-top-left-radius: 15px 225px;
+  flex: 0.5 0 auto;
 }
 
 .NavBar .Btn {
@@ -48,6 +49,7 @@ input[type="text"]{
   border-top-left-radius: 255px 15px;
   border-top-right-radius: 15px 225px;
   flex: 0.1 0.1 auto;
+  margin: 0 auto;
 }
 
 .NavBar .Btn:hover {
@@ -60,29 +62,51 @@ input[type="text"]{
 }
 
 .Shelf{
-    border-left: #333;
-    border-right: #333;
-    border-width: 20px;
-    border-left-style: double;
-    border-right-style: double;
-    width: 90%;
-    margin: 0 auto;
-    padding: 20px;
+  border-left: #333;
+  border-right: #333;
+  border-width: 20px;
+  border-left-style: double;
+  border-right-style: double;
+  width: 88.5%;
+  margin: 0 auto;
+  padding: 15px;
 }
 
-#shelfSide{
-  margin-top: -25px;
+.ShelfBottom{
+  border-style: solid;
+  border-width: 3px;
+  border-color: black ;
+  width: 100%;
+  height: 20px;
+  background: repeating-linear-gradient(45deg, #333, #333 10px, rgb(237, 237, 203) 10px, rgb(237, 237, 203) 20px);
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  box-shadow: rgb(0, 0, 0) 15px 28px 25px -10px;
 }
 
-.ShelvesBottom{
-    border-style: solid;
-    border-width: 3px;
-    border-color: black ;
-    width: 100%;
-    height: 20px;
-    background: repeating-linear-gradient(45deg, #333, #333 10px, rgb(237, 237, 203) 10px, rgb(237, 237, 203) 20px);
-    border-bottom-left-radius: 15px 255px;
-    border-bottom-right-radius: 225px 15px;
-    border-top-left-radius: 255px 15px;
-    border-top-right-radius: 15px 225px;
+.ShelfFrame{
+  border-left: #333;
+  border-right: #333;
+  border-width: 20px;
+  border-left-style: double;
+  border-right-style: double;
+  width: 88.5%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.Fridge{
+  background-color: #fff;
+  margin-top: 20px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: black ;
+  border-radius: 7px;
+}
+
+.FridgeShelf {
+  margin: 0 auto;
+  padding: 25px;
 }
