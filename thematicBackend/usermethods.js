@@ -10,8 +10,11 @@ mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
+
 const db = mongoose.connection;
+
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 async function addUser(Username, Email, Password) {
   try {
     // Check if a user with the same email already exists
@@ -73,4 +76,4 @@ async function testRemoveUser() {
 testRemoveUser();
 
 // addUser("luke", "l@gmail.com", "password");
-removeUser("tasha@gmail");
+// removeUser("l@gmail");
