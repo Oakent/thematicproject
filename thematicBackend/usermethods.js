@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 const User = require("./models/user");
 const config = require("./config");
+const bcrypt = require("bcrypt");
+const saltRounds = 10; // The cost factor for hashing
+
 
 const mongoURI = config.mongoURI;
 console.log("mongoURI", mongoURI);
