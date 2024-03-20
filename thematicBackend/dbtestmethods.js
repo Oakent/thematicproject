@@ -1,5 +1,5 @@
-const { loginUser, addUser } = require('./usermethods.js'); // Ensure the path is correct
-const { addIngredient, findIngredientByName, updateIngredient, removeIngredient} = require('./ingredientmethods.js'); // Ensure the path is correct
+const { loginUser, addUser } = require('./usermethods.js');
+const { addIngredient, findIngredientByName, updateIngredient, removeIngredient} = require('./ingredientmethods.js'); 
 const mongoose = require("mongoose");
 const User = require("./models/user");
 const config = require("./config");
@@ -27,7 +27,6 @@ db.once('open', function() {
 
 async function testLogin() {
     try {
-      // Assuming addUser has been called previously and the user exists
       const loginResponse = await loginUser("test@email.com", "password");
       console.log("Login successful for:", loginResponse);
     } catch (err) {
@@ -40,16 +39,38 @@ async function testLogin() {
   
   async function testAddUser() {
       // Add a user
-      const user = await addUser("test", "test@email.com", "password");
+      const user = await addUser("x", "y", "z");
       console.log("User added:", user);
   }
+
+  async function testRemoveUser() {
+    try {
+      const user = await removeUser("user email");
+      console.log("User removed:", user);
+    } catch (err) {
+      console.error("Remove user failed:", err.message);
+    } finally {
+      console.log("Attempted remove user operation");
+    }
+  }
+
+
+async function testAddIngredient() {
+  try {
+    const ingredient = await addIngredient("user name", "ingredient name", "units", "Category", "Allergens");
+    console.log("Ingredient added:", ingredient, "to user:" , User);
+  } catch (err) {
+    console.error("Add ingredient failed:", err.message);
+  }
+    finally {
+  console.log("Attempted add ingredient operation");
+  }
+}
   
-//   testAddUser("test", "test@email.com", "password");
-  
-  testLogin("test@email.com", "password");
-  
+  // testLogin("test@email.com", "password");
+
+  // testAddUser("luke", "l@gmail.com", "password");
+
   // testRemoveUser();
   
-  // addUser("luke", "l@gmail.com", "password");
-  // removeUser("l@gmail")}
-  
+  // testAddIngredient("test", "testIngredient", "testUnit", "testCategory", "testAllergens");

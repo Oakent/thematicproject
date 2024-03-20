@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-const Ingredient = require("./ingredient"); // Adjust the path as necessary
+const User = require("./models/user");
+const Ingredient = require("./models/ingredient"); 
+const config = require("./config");
 
 const mongoURI = config.mongoURI;
 console.log("mongoURI", mongoURI);
@@ -15,19 +17,28 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
-// Function to add a new ingredient
-async function addIngredient(name, unit, category, allergens) {
+async function addIngredient(Username, Name, Unit, Category, Allergens) {
   try {
-    const newIngredient = new Ingredient({
-      name,
-      unit,
-      category,
-      allergens,
-    });
+    const user = await User.findOne({Username: Username});
+    if (!user) {
+      throw new Error('User not found');
+    }
+    else if (user) {
+      console.log("User found:", user);
+    }
 
-    const savedIngredient = await newIngredient.save();
-    console.log("Ingredient added:", savedIngredient);
-    return savedIngredient;
+    const newIngredient = {
+      Name,
+      Unit,
+      Category,
+      Allergens,
+    };
+
+    user.personalIngredients.push(newIngredient);
+    await user.save();
+
+    console.log("Ingredient added:", newIngredient, "to user:", user);
+    return newIngredient;
   } catch (err) {
     console.error(err);
     throw err;
@@ -63,7 +74,7 @@ async function updateIngredient(name, updates) {
     console.error(err);
     throw err;
   }
-}s
+}
 
 // Function to remove an ingredient
 async function removeIngredient(name) {
