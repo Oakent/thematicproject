@@ -26,11 +26,14 @@ async function addUser(Username, Email, Password) {
       throw new Error('User with this email already exists');
     }
 
+    // Hash password
+    const hashedPassword = await bcrypt.hash(Password, saltRounds);
+
     // Create new user document
     const newUser = new User({
       Username, // Make sure these match the case and spelling of your schema definitions
       Email,
-      Password,
+      Password: hashedPassword, // store hashed password
     });
 
     // Save user to the database
@@ -62,21 +65,31 @@ async function removeUser(Email) {
   }
 }
 
-async function testRemoveUser() {
-  try {
-    // Add a user
-    const user = await addUser("test", "test@email.com", "password");
-    console.log("User added:", user);
 
-    // Remove the user
-    const removedUser = await removeUser("test@email.com");
-    console.log("User removed:", removedUser);
+async function loginUser(Email, Password) {
+  try {
+    // Find the user with the given email
+    const user = await User.findOne({ Email });
+    if (!user) {
+      throw new Error('User with this email does not exist');
+    }
+
+    // Compare the provided password with the stored hashed password
+    const passwordMatch = await bcrypt.compare(Password, user.Password);
+    if (!passwordMatch) {
+      throw new Error('Incorrect password');
+    }
+
+    console.log("User logged in:", user);
+    return user;
   } catch (err) {
     console.error(err);
+    throw err;
   }
 }
 
-testRemoveUser();
-
-// addUser("luke", "l@gmail.com", "password");
-// removeUser("l@gmail");
+module.exports = {
+  addUser,
+  removeUser,
+  loginUser,
+};
