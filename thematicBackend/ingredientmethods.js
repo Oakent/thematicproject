@@ -63,7 +63,7 @@ async function updateIngredient(name, updates) {
     console.error(err);
     throw err;
   }
-}
+}s
 
 // Function to remove an ingredient
 async function removeIngredient(name) {

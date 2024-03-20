@@ -1,5 +1,5 @@
 const { loginUser, addUser } = require('./usermethods.js'); // Ensure the path is correct
-const ingredientMethods = require('./ingredientmethods'); // Ensure the path is correct
+const { addIngredient, findIngredientByName, updateIngredient, removeIngredient} = require('./ingredientmethods.js'); // Ensure the path is correct
 const mongoose = require("mongoose");
 const User = require("./models/user");
 const config = require("./config");
