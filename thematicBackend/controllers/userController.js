@@ -1,14 +1,27 @@
 const express = require("express");
+const user_controller = require("../controllers/userController");
 const asyncHandler = require("express-async-handler");
 
-const registerUser = asyncHandler(async (req, res) => {
-  res.send("not implemented, register user");
+exports.index = asyncHandler(async (req, res) => {
+  res.send("not implemented, index");
 });
 
-const loginUser = asyncHandler(async (req, res) => {
-  res.send("not implemented, login user");
+exports.registerUserGet = asyncHandler(async (req, res) => {
+  res.send("not implemented, register user get");
 });
 
-const updateIngredients = asyncHandler(async (req, res) => {
+exports.registerUserPost = asyncHandler(async (req, res, next) => {
+  res.send("not implemented, register user post");
+});
+
+exports.loginUserGet = asyncHandler(async (req, res, next) => {
+  res.send("not implemented, login user get");
+});
+
+exports.loginUserPost = asyncHandler(async (req, res, next) => {
+  res.send("not implemented, login user post");
+});
+
+exports.updateIngredients = asyncHandler(async (req, res, next) => {
   res.send("not implemented, update ingredients");
 });
