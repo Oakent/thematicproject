@@ -22,6 +22,10 @@ exports.loginUserPost = asyncHandler(async (req, res, next) => {
   res.send("not implemented, login user post");
 });
 
-exports.updateIngredients = asyncHandler(async (req, res, next) => {
-  res.send("not implemented, update ingredients");
+exports.userProfileGet = asyncHandler(async (req, res, next) => {
+  res.send("not implemented, user profile get");
+});
+
+exports.userProfileUpdate = asyncHandler(async (req, res, next) => {
+  res.send("not implemented, user profile update");
 });

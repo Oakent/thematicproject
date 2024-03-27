@@ -1,22 +1,22 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 
-exports.getRecipes = asyncHandler(async (req, res) => {
-  res.send("not implemented, get all recipes");
+exports.recipesGet = asyncHandler(async (req, res) => {
+  res.send("not implemented, recipes get");
 });
 
-exports.getRecipeById = asyncHandler(async (req, res) => {
-  res.send("not implemented, get recipe by id");
+exports.recipeCreate = asyncHandler(async (req, res) => {
+  res.send("not implemented, recipe create");
 });
 
-exports.createRecipe = asyncHandler(async (req, res) => {
-  res.send("not implemented, create recipe");
+exports.recipeGetById = asyncHandler(async (req, res) => {
+  res.send("not implemented, recipe get by id");
 });
 
-exports.updateRecipe = asyncHandler(async (req, res) => {
-  res.send("not implemented, update recipe");
+exports.recipeUpdate = asyncHandler(async (req, res) => {
+  res.send("not implemented, recipe update");
 });
 
-exports.deleteRecipe = asyncHandler(async (req, res) => {
-  res.send("not implemented, delete recipe");
+exports.recipeDelete = asyncHandler(async (req, res) => {
+  res.send("not implemented, recipe delete");
 });
