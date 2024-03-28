@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <main>        
+    <main class = "Container">        
         <div class="NavBar">
             <button type = "button" class = "Btn" id = "settings">
                 <img src="/frontend/img/settings.svg" alt="Settings Button">
@@ -25,13 +25,6 @@
         </div>
  
         <div class = "Shelves"> 
-            <details class = "Shelf">
-                <summary>Herbs, Sauces & Spices</summary>
-                <p>Flavourings accordion</p>
-            </details>
-            <div class = "ShelfFrame"></div>
-            <div class = "ShelfBottom"></div>
-
             <details class = "Shelf">
                 <summary>Carbohydrates</summary>
                 <p>Carbs accordion</p>
@@ -48,20 +41,26 @@
         </div>
 
         <div class = "Fridge">
-            <details class = "FridgeShelf">
-                <summary>Dairy</summary>
-                <p>Dairy accordion</p>
-            </details>
-
-            <details class = "FridgeShelf">
-                <summary>Fruit & Veg</summary>
-                <p>F+V accordion</p>
-            </details>
-
-            <details class = "FridgeShelf">
-                <summary>Meat</summary>
-                <p>Meat accordion</p>
-            </details>
+            <div class = "FridgeMain">
+                <details class = "FridgeShelf" id = "top">
+                    <summary>Dairy</summary>
+                    <p>Dairy accordion</p>
+                </details>
+    
+                <details class = "FridgeShelf" id = "middle">
+                    <summary>Fruit & Veg</summary>
+                    <p>F+V accordion</p>
+                </details>
+    
+                <details class = "FridgeShelf" id = "bottom">
+                    <summary>Meat</summary>
+                    <p>Meat accordion</p>
+                </details>
+            </div>
+            
+            <div class = "FridgeDoor">
+                <div class = "Handle"></div>
+            </div>
         </div>
     </main>
 </body>
