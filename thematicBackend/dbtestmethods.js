@@ -66,6 +66,16 @@ async function testAddIngredient() {
   console.log("Attempted add ingredient operation");
   }
 }
+
+async function testDisplayUserIngredients() {
+  try {
+    const user = await User.findOne({Username: "user name"});
+    console.log("User found:", user);
+    console.log("Ingredients:", user.personalIngredients);
+  } catch (err) {
+    console.error("Display user ingredients failed:", err.message);
+  }
+}
   
   // testLogin("test@email.com", "password");
 
@@ -74,3 +84,5 @@ async function testAddIngredient() {
   // testRemoveUser();
   
   // testAddIngredient("test", "testIngredient", "testUnit", "testCategory", "testAllergens");
+
+  testDisplayUserIngredients("test");
