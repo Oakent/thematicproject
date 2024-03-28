@@ -3,7 +3,7 @@ body{
 }
 
 .Container {
-  max-width: 600px;
+  max-width: 10000px;
 }
 
 input[type="submit"] {
@@ -105,6 +105,9 @@ input[type="text"]{
   margin-top: 20px;
   display: flex;
   flex-direction: row;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .FridgeMain{
@@ -112,7 +115,7 @@ input[type="text"]{
   border-color: black;
   border-style: solid;
   border-radius: 3px;
-  border-width: 3.2px;
+  border-width: 3px;
   padding: 10px;
   flex: 1 0 auto;
   height: 380px;
@@ -123,7 +126,7 @@ input[type="text"]{
   border-color: black;
   border-style: solid;
   border-radius: 8px;
-  border-width: 3.2px;
+  border-width: 3px;
   padding: 20px;
   flex: 0 0 auto;
   margin-left: -4px;
@@ -158,4 +161,18 @@ input[type="text"]{
   border-style: solid;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
+}
+
+.ShelfItems{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.row {
+  display: contents; /* Ensures the row elements don't create an extra grid item */
+}
+
+.col {
+  display: flex;
+  align-items: center;
 }
