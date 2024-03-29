@@ -2,6 +2,10 @@ body{
     background-color: rgb(237, 237, 203);
 }
 
+.Container {
+  max-width: 10000px;
+}
+
 input[type="submit"] {
   width: 50%; /* or any desired width */
 }
@@ -98,15 +102,77 @@ input[type="text"]{
 }
 
 .Fridge{
-  background-color: #fff;
   margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.FridgeMain{
+  background-color: #fff;
+  border-color: black;
   border-style: solid;
+  border-radius: 3px;
   border-width: 3px;
-  border-color: black ;
-  border-radius: 7px;
+  padding: 10px;
+  flex: 1 0 auto;
+  height: 380px;
+}
+
+.FridgeDoor{
+  background-color: #fff;
+  border-color: black;
+  border-style: solid;
+  border-radius: 8px;
+  border-width: 3px;
+  padding: 20px;
+  flex: 0 0 auto;
+  margin-left: -4px;
+}
+
+.Handle{
+  border: brown;
+  border-style: solid;
 }
 
 .FridgeShelf {
   margin: 0 auto;
-  padding: 25px;
+  padding: 10px;
+}
+
+#top {
+  border: #333;
+  border-style: solid;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+#middle{
+  border-left: #333 ;
+  border-left-style: solid;
+  border-right: #333 ;
+  border-right-style: solid;
+}
+
+#bottom{
+  border: #333;
+  border-style: solid;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.ShelfItems{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.row {
+  display: contents; /* Ensures the row elements don't create an extra grid item */
+}
+
+.col {
+  display: flex;
+  align-items: center;
 }
