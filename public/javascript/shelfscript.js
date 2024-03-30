@@ -1,9 +1,9 @@
 let express = require("express");
-
-let app = express();
+let app = app.js;
+let path = require("path");
 
 app.get("/",(req,res) => {
-    res.send("Hello World");
+    res.sendFile(path.join(__dirname,'public'));
 });
 
 app.listen(3000);
