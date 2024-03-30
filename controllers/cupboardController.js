@@ -1,4 +1,5 @@
 const Cupboard = require("../models/cupboard");
+const Ingredients = require("../models/ingredient");
 const asyncHandler = require("express-async-handler");
 
 exports.cupboardGet = asyncHandler(async (req, res) => {
@@ -6,5 +7,6 @@ exports.cupboardGet = asyncHandler(async (req, res) => {
 });
 
 exports.cupboardUpdate = asyncHandler(async (req, res) => {
-  res.send("not implemented, update cupboard");
+  const allIngredients = await Ingredients.find();
+  res.render("cupboardUpdate", allIngredients);
 });
