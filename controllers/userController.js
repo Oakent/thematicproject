@@ -35,11 +35,32 @@ exports.registerUserPost = asyncHandler(async (req, res, next) => {
 });
 
 exports.loginUserGet = asyncHandler(async (req, res, next) => {
-  res.send("not implemented, login user get");
+  res.render("login");
 });
 
 exports.loginUserPost = asyncHandler(async (req, res, next) => {
-  res.send("not implemented, login user post");
+  try {
+    const Email = req.body.email;
+    const Password = req.body.password;
+    // Find the user with the given email
+    const user = await User.findOne({ Email });
+    if (!user) {
+      throw new Error("User with this email does not exist");
+    }
+
+    // Compare the provided password with the stored hashed password
+    const passwordMatch = await bcrypt.compare(Password, user.Password);
+    if (!passwordMatch) {
+      throw new Error("Incorrect password");
+    }
+
+    console.log("User logged in:", user);
+    res.send("User logged in");
+    return user;
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
 });
 
 exports.userProfileGet = asyncHandler(async (req, res, next) => {
