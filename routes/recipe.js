@@ -19,7 +19,6 @@ router.post("/cupboard", cupboardController.cupboardUpdate);
 router.get("/addingredient", ingredientController.add_ingredient_get);
 router.post("/addingredient", ingredientController.add_ingredient_post);
 router.get("/ingredients", ingredientController.ingredientsGet);
-router.post("/ingredients", ingredientController.ingredientCreate);
 router.get("/ingredients/:id", ingredientController.ingredientGetById);
 router.put("/ingredients/:id", ingredientController.ingredientUpdate);
 router.delete("/ingredients/:id", ingredientController.ingredientDelete);

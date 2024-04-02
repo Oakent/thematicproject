@@ -10,14 +10,16 @@ exports.add_ingredient_get = asyncHandler(async (req, res, next) => {
   res.render("add_ingredient");
 });
 
-exports.add_ingredient_post = asyncHandler(async (req, res, next) => {
+exports.add_ingredient_post = asyncHandler(async (req, res) => {
   const ingredient = new Ingredient({
-    name: req.body.name,
+    name: req.body.ingredient_name,
     unit: req.body.unit,
     category: req.body.category,
     allergens: req.body.allergens,
   });
+  console.log(ingredient);
   await ingredient.save();
+  res.redirect("/");
 });
 
 exports.ingredientGetById = asyncHandler(async (req, res, next) => {
