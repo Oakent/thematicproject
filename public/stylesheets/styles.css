@@ -167,12 +167,3 @@ input[type="text"]{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
-
-.row {
-  display: contents; /* Ensures the row elements don't create an extra grid item */
-}
-
-.col {
-  display: flex;
-  align-items: center;
-}
