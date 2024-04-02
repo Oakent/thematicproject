@@ -91,11 +91,9 @@ db.once("open", async () => {
 
   // Create sample cupboards
   const cupboard1 = new Cupboard({
-    owner: user1._id,
     ingredients: [ingredient1._id],
   });
   const cupboard2 = new Cupboard({
-    owner: user2._id,
     ingredients: [ingredient2._id],
   });
 
