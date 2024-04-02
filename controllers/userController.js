@@ -1,5 +1,5 @@
 const express = require("express");
-const user_controller = require("../controllers/userController");
+const User = require("../models/user");
 const asyncHandler = require("express-async-handler");
 
 exports.index = asyncHandler(async (req, res) => {
@@ -7,11 +7,22 @@ exports.index = asyncHandler(async (req, res) => {
 });
 
 exports.registerUserGet = asyncHandler(async (req, res) => {
-  res.send("not implemented, register user get");
+  res.render("sign_up");
 });
 
 exports.registerUserPost = asyncHandler(async (req, res, next) => {
-  res.send("not implemented, register user post");
+  try {
+    const user = new User({
+      Username: req.body.username,
+      Email: req.body.email,
+      Password: req.body.password,
+      cupboard: [],
+    });
+    const result = await user.save();
+    res.redirect("/");
+  } catch (err) {
+    return next(err);
+  }
 });
 
 exports.loginUserGet = asyncHandler(async (req, res, next) => {
