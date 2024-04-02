@@ -2,7 +2,8 @@ const express = require("express");
 const asyncHandler = require("express-async-handler");
 
 exports.recipesGet = asyncHandler(async (req, res) => {
-  res.send("not implemented, recipes get");
+  const allRecipes = await Recipe.find({}).sort({ title: 1 }).exec();
+  res.render("recipes", { recipes: allRecipes });
 });
 
 exports.recipeCreate = asyncHandler(async (req, res) => {
