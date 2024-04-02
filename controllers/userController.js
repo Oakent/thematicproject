@@ -1,6 +1,8 @@
 const express = require("express");
 const User = require("../models/user");
 const asyncHandler = require("express-async-handler");
+const bcrypt = require("bcrypt");
+const saltRounds = 10; // The cost factor for hashing
 
 exports.index = asyncHandler(async (req, res) => {
   res.send("not implemented, index");
@@ -12,10 +14,17 @@ exports.registerUserGet = asyncHandler(async (req, res) => {
 
 exports.registerUserPost = asyncHandler(async (req, res, next) => {
   try {
+    const Email = req.body.email;
+    const existingUser = await User.findOne({ Email }); // Ensure field names are lowercase if your model defines them that way
+    if (existingUser) {
+      console.log("User with this email already exists");
+      throw new Error("User with this email already exists");
+    }
+    const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
     const user = new User({
       Username: req.body.username,
-      Email: req.body.email,
-      Password: req.body.password,
+      Email: Email,
+      Password: hashedPassword,
       cupboard: [],
     });
     const result = await user.save();
