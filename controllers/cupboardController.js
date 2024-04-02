@@ -1,4 +1,4 @@
-const Cupboard = require("../models/cupboard");
+const User = require("../models/user");
 const Ingredients = require("../models/ingredient");
 const asyncHandler = require("express-async-handler");
 

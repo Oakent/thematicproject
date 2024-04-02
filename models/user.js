@@ -7,7 +7,14 @@ const UserSchema = new Schema({
   Email: { type: String, required: true, minLength: 5, maxLength: 100 },
   Password: { type: String, required: true, minLength: 8, maxLength: 100 },
   Cupboard: [
-    { type: Schema.Types.ObjectId, required: true, ref: "Ingredient" },
+    {
+      Ingredient: {
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: "Ingredient",
+      },
+      Quantity: { type: Number, required: true },
+    },
   ],
 });
 module.exports = mongoose.model("User", UserSchema);

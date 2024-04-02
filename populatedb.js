@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const User = require("./models/user");
 const Recipe = require("./models/recipe");
 const Ingredient = require("./models/ingredient");
-const Cupboard = require("./models/cupboard");
 
 const config = require("./config");
 const mongoURI = config.mongoURI;

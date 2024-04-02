@@ -16,8 +16,8 @@ router.put("/user/profile", userController.userProfileUpdate);
 router.get("/cupboard", cupboardController.cupboardGet);
 router.post("/cupboard", cupboardController.cupboardUpdate);
 
-router.get("/addingredient", ingredientController.add_ingredient_get);
-router.post("/addingredient", ingredientController.add_ingredient_post);
+router.get("/ingredient/create", ingredientController.add_ingredient_get);
+router.post("/ingredient/create", ingredientController.add_ingredient_post);
 router.get("/ingredients", ingredientController.ingredientsGet);
 router.get("/ingredients/:id", ingredientController.ingredientGetById);
 router.put("/ingredients/:id", ingredientController.ingredientUpdate);
