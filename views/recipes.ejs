@@ -6,6 +6,8 @@
     <title>Document</title>
   </head>
   <body>
-    <% recipes.forEach(recipe=> { }); %>
+    <% recipes.forEach(recipe => { %>
+    <p><a href="/recipes/<%= recipe._id %>"><%= recipe.name %></a></p>
+    <% }); %>
   </body>
 </html>

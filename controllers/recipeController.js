@@ -1,5 +1,6 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
+const Recipe = require("../models/recipe");
 
 exports.recipesGet = asyncHandler(async (req, res) => {
   const allRecipes = await Recipe.find({}).sort({ title: 1 }).exec();
