@@ -12,8 +12,8 @@ exports.recipeCreate = asyncHandler(async (req, res) => {
 });
 
 exports.recipeGetById = asyncHandler(async (req, res, next) => {
-  console.log("body id:" + req.params._id);
-  const recipe = await Recipe.findById(req.params._id).exec();
+  console.log("body id:" + req.params.id);
+  const recipe = await Recipe.findById(req.params.id).exec();
 
   res.render("recipe_page", { recipe: recipe });
 });

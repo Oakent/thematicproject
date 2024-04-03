@@ -3,9 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Recipe Details</title>
   </head>
   <body>
-    <h1>test</h1>
+    <div>
+      <h1><%= recipe.name %></h1>
+      <p><strong>Cuisine:</strong> <%= recipe.info.cuisine %></p>
+      <p><strong>Type:</strong> <%= recipe.info.type %></p>
+      <p><strong>Servings:</strong> <%= recipe.info.servings %></p>
+      <p><strong>Time:</strong> <%= recipe.info.time %> minutes</p>
+      <h2>Ingredients</h2>
+      <ul>
+        <% recipe.ingredients.forEach(ingredient => { %>
+        <li><%= ingredient.quantity %> <%= ingredient.ingredient.name %></li>
+        <% }); %>
+      </ul>
+      <h2>Instructions</h2>
+      <ol>
+        <% recipe.instructions.forEach(instruction => { %>
+        <li><%= instruction %></li>
+        <% }); %>
+      </ol>
+    </div>
   </body>
 </html>
