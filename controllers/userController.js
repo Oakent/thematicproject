@@ -1,25 +1,66 @@
 const express = require("express");
-const user_controller = require("../controllers/userController");
+const User = require("../models/user");
 const asyncHandler = require("express-async-handler");
+const bcrypt = require("bcrypt");
+const saltRounds = 10; // The cost factor for hashing
 
 exports.index = asyncHandler(async (req, res) => {
   res.send("not implemented, index");
 });
 
 exports.registerUserGet = asyncHandler(async (req, res) => {
-  res.send("not implemented, register user get");
+  res.render("sign_up");
 });
 
 exports.registerUserPost = asyncHandler(async (req, res, next) => {
-  res.send("not implemented, register user post");
+  try {
+    const Email = req.body.email;
+    const existingUser = await User.findOne({ Email }); // Ensure field names are lowercase if your model defines them that way
+    if (existingUser) {
+      console.log("User with this email already exists");
+      throw new Error("User with this email already exists");
+    }
+    const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
+    const user = new User({
+      Username: req.body.username,
+      Email: Email,
+      Password: hashedPassword,
+      cupboard: [],
+    });
+    const result = await user.save();
+    res.redirect("/");
+  } catch (err) {
+    return next(err);
+  }
 });
 
 exports.loginUserGet = asyncHandler(async (req, res, next) => {
-  res.send("not implemented, login user get");
+  res.render("login");
 });
 
 exports.loginUserPost = asyncHandler(async (req, res, next) => {
-  res.send("not implemented, login user post");
+  try {
+    const Email = req.body.email;
+    const Password = req.body.password;
+    // Find the user with the given email
+    const user = await User.findOne({ Email });
+    if (!user) {
+      throw new Error("User with this email does not exist");
+    }
+
+    // Compare the provided password with the stored hashed password
+    const passwordMatch = await bcrypt.compare(Password, user.Password);
+    if (!passwordMatch) {
+      throw new Error("Incorrect password");
+    }
+
+    console.log("User logged in:", user);
+    res.send("User logged in");
+    return user;
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
 });
 
 exports.userProfileGet = asyncHandler(async (req, res, next) => {

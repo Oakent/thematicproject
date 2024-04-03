@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const User = require("./models/user");
 const Recipe = require("./models/recipe");
 const Ingredient = require("./models/ingredient");
-const Cupboard = require("./models/cupboard");
 
 const config = require("./config");
 const mongoURI = config.mongoURI;
@@ -91,11 +90,9 @@ db.once("open", async () => {
 
   // Create sample cupboards
   const cupboard1 = new Cupboard({
-    owner: user1._id,
     ingredients: [ingredient1._id],
   });
   const cupboard2 = new Cupboard({
-    owner: user2._id,
     ingredients: [ingredient2._id],
   });
 

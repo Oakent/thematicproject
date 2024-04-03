@@ -1,16 +1,21 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
+const Recipe = require("../models/recipe");
 
-exports.recipesGet = asyncHandler(async (req, res) => {
-  res.send("not implemented, recipes get");
+exports.recipesGet = asyncHandler(async (req, res, next) => {
+  const allRecipes = await Recipe.find({}).sort({ title: 1 }).exec();
+  res.render("recipes", { recipes: allRecipes });
 });
 
 exports.recipeCreate = asyncHandler(async (req, res) => {
   res.send("not implemented, recipe create");
 });
 
-exports.recipeGetById = asyncHandler(async (req, res) => {
-  res.send("not implemented, recipe get by id");
+exports.recipeGetById = asyncHandler(async (req, res, next) => {
+  console.log("body id:" + req.params.id);
+  const recipe = await Recipe.findById(req.params.id).exec();
+
+  res.render("recipe_page", { recipe: recipe });
 });
 
 exports.recipeUpdate = asyncHandler(async (req, res) => {

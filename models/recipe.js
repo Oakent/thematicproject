@@ -37,4 +37,8 @@ const RecipeSchema = new mongoose.Schema({
   },
 });
 
+RecipeSchema.virtual("url").get(function () {
+  return "/recipes/" + this._id;
+});
+
 module.exports = mongoose.model("Recipe", RecipeSchema);
