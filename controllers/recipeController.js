@@ -16,13 +16,9 @@ exports.recipeCreate = asyncHandler(async (req, res) => {
 exports.recipeGetById = asyncHandler(async (req, res, next) => {
   console.log("body id:" + req.params.id);
   const recipe = await Recipe.findById(req.params.id)
-    .populate(
-      { path: "ingredient", model: "Ingredient" },
-      { strictPopulate: false }
-    )
+    .populate("ingredients.ingredient")
     .exec();
   console.log("recipe: ", recipe);
-  console.log("add change to test railway");
   recipe.ingredients.forEach((recipeIngredient) => {
     if (recipeIngredient && recipeIngredient.ingredient) {
       const ingredient = recipeIngredient.ingredient;
