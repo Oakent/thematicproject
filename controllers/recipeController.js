@@ -19,9 +19,10 @@ exports.recipeGetById = asyncHandler(async (req, res, next) => {
     .populate("ingredients.ingredient")
     .exec();
   console.log(recipe.ingredients);
-  console.log("unit " + recipe.ingredients.ingredient.unit);
-  console.log("ingredient name " + recipe.ingredients.ingredient.name);
-  console.log("test");
+  recipe.ingredients.forEach((recipeIngredient) => {
+    console.log("unit " + recipeIngredient.ingredient.unit);
+    console.log("ingredient name " + recipeIngredient.ingredient.name);
+  });
   res.render("recipe_page", { recipe: recipe });
 });
 
