@@ -16,8 +16,8 @@ exports.recipeGetById = asyncHandler(async (req, res, next) => {
   console.log("body id:" + req.params.id);
   const recipe = await Recipe.findById(req.params.id).exec();
   console.log(recipe.ingredients);
-  console.log(recipe.ingredients.unit);
-  console.log(recipe.ingredients.ingredient);
+  console.log("unit " + recipe.ingredients.ingredient.unit);
+  console.log("ingredient name " + recipe.ingredients.ingredient.name);
   res.render("recipe_page", { recipe: recipe });
 });
 
