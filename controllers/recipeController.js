@@ -18,11 +18,19 @@ exports.recipeGetById = asyncHandler(async (req, res, next) => {
   const recipe = await Recipe.findById(req.params.id)
     .populate("ingredients.ingredient")
     .exec();
-  console.log(recipe.ingredients);
+  console.log("recipe: ", recipe);
+
   recipe.ingredients.forEach((recipeIngredient) => {
-    console.log("unit " + recipeIngredient.ingredient.unit);
-    console.log("ingredient name " + recipeIngredient.ingredient.name);
+    if (recipeIngredient && recipeIngredient.ingredient) {
+      const ingredient = recipeIngredient.ingredient;
+      console.log("Ingredient:", ingredient);
+      console.log("unit:", ingredient.unit);
+      console.log("name:", ingredient.name);
+    } else {
+      console.log("Ingredient information missing");
+    }
   });
+
   res.render("recipe_page", { recipe: recipe });
 });
 

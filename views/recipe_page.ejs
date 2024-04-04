@@ -14,10 +14,11 @@
       <p><strong>Time:</strong> <%= recipe.info.time %> minutes</p>
       <h2>Ingredients</h2>
       <ul>
-        <% recipe.ingredients.forEach(ingredient => { %>
+        <% recipe.ingredients.forEach(recipe_ingredient => { %>
         <li>
-          <%= ingredient.quantity %> <%= ingredient.ingredient.unit %> <%=
-          ingredient.ingredient.name %>
+          <%= recipe_ingredient.quantity %> <%=
+          recipe_ingredient.ingredient.unit %> <%=
+          recipe_ingredient.ingredient.name %>
         </li>
         <% }); %>
       </ul>
