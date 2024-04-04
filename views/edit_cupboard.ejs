@@ -3,9 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/stylesheets/pico-main/css/pico.classless.min.css"
+    />
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
     <title>Document</title>
   </head>
+
   <body>
+    <main>
+      <div class="NavBar">
+        <button type="button" class="Btn" id="settings">
+          <img src="/img/settings.svg" alt="Settings Button" />
+        </button>
+        <input
+          type="text"
+          placeholder="Search recipes..."
+          class="SearchInput"
+        />
+        <button type="button" class="Btn" id="searchBtn">
+          <img src="/img/search.svg" alt="Search Button" />
+        </button>
+        <button type="button" class="Btn" id="searchAdj">
+          <img src="/img/adjustments.svg" alt="Search Adjustments" />
+        </button>
+      </div>
+
+      <div class="Shelves">
+        <details class="Shelf">
+          <summary>Herbs, Sauces & Spices</summary>
+          <p>Flavourings accordion</p>
+        </details>
+        <div class="ShelfFrame"></div>
+        <div class="ShelfBottom"></div>
+
+        <details class="Shelf">
+          <summary>Carbohydrates</summary>
+        </details>
+        <div class="ShelfFrame"></div>
+        <div class="ShelfBottom"></div>
+
+        <details class="Shelf">
+          <summary>Sweet</summary>
+          <p>Sweet accordion</p>
+        </details>
+        <div class="ShelfFrame"></div>
+        <div class="ShelfBottom"></div>
+      </div>
+
+      <div class="Fridge">
+        <div class="FridgeMain">
+          <details class="FridgeShelf" id="top">
+            <summary>Dairy</summary>
+            <p>Dairy accordion</p>
+          </details>
+
+          <details class="FridgeShelf" id="middle">
+            <summary>Fruit & Veg</summary>
+            <p>F+V accordion</p>
+          </details>
+
+          <details class="FridgeShelf" id="bottom">
+            <summary>Meat</summary>
+            <p>Meat accordion</p>
+          </details>
+        </div>
+        <div class="FridgeDoor"></div>
+      </div>
+    </main>
+
     <h1>user.name's Cupboard</h1>
     <!---does not actually use users name but is a placeholder-->
     <form action="" method="post">
