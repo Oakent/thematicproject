@@ -17,6 +17,7 @@ exports.recipeGetById = asyncHandler(async (req, res, next) => {
   console.log("body id:" + req.params.id);
   const recipe = await Recipe.findById(req.params.id)
     .populate("ingredients.ingredient")
+    .execPopulate()
     .exec();
   console.log("recipe: ", recipe);
 
