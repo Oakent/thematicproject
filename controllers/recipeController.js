@@ -14,23 +14,45 @@ exports.recipeCreate = asyncHandler(async (req, res) => {
 });
 
 exports.recipeGetById = asyncHandler(async (req, res, next) => {
-  console.log("body id:" + req.params.id);
-  const recipe = await Recipe.findById(req.params.id)
-    .populate("ingredients.ingredient", "Ingredient")
-    .exec();
-  console.log("recipe: ", recipe);
-  recipe.ingredients.forEach((recipeIngredient) => {
-    if (recipeIngredient && recipeIngredient.ingredient) {
-      const ingredient = recipeIngredient.ingredient;
-      console.log("Ingredient:", ingredient);
-      console.log("unit:", ingredient.unit);
-      console.log("name:", ingredient.name);
-    } else {
-      console.log("Ingredient information missing");
-    }
-  });
+  try {
+    const recipe = await Recipe.findById(req.params.id)
+      .populate({
+        path: "ingredients",
+        populate: {
+          path: "ingredient",
+          model: "Ingredient",
+          select: "name unit",
+        },
+      })
+      .exec();
 
-  res.render("recipe_page", { recipe: recipe });
+    console.log("recipe: " + recipe);
+
+    await Promise.all(
+      recipe.ingredients.map(async (ingredient) => {
+        if (!ingredient.ingredient) {
+          await recipe
+            .populate("ingredients." + ingredient._id + ".ingredient")
+            .execPopulate();
+        }
+      })
+    );
+
+    recipe.ingredients.forEach((recipeIngredient) => {
+      if (recipeIngredient && recipeIngredient.ingredient) {
+        const ingredient = recipeIngredient.ingredient;
+        console.log("Ingredient:", ingredient);
+        console.log("unit:", ingredient.unit);
+        console.log("name:", ingredient.name);
+      } else {
+        console.log("Ingredient information missing");
+      }
+    });
+    res.render("recipe_page", { recipe: recipe });
+  } catch (err) {
+    console.log("error: " + err);
+    res.status(404).send("Recipe not found");
+  }
 });
 
 console.log();
