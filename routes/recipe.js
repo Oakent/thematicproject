@@ -29,11 +29,12 @@ router.get("/recipes/:id", recipeController.recipeGetById);
 router.put("/recipes/:id", recipeController.recipeUpdate);
 router.delete("/recipes/:id", recipeController.recipeDelete);
 
+/*
 router.get("/viableRecipes", recipeController.viableRecipesGet);
 router.post("/viableRecipes", recipeController.viableRecipePost);
 router.get("/viableRecipes/:id", recipeController.viableRecipeGetById);
 router.post("/viableRecipes/:id", recipeController.viableRecipePost);
-
+*/
 
 console.log("routes are loaded");
 
