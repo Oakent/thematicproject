@@ -17,19 +17,23 @@
       <br />
       <label for="unit">Unit:</label>
       <select name="unit" id="unit">
-        <option value="grams">grams</option>
-        <option value="millilitres">millilitres</option>
-        <option value="tsp">teaspoon</option>
-        <option value="tbsp">tablespoon</option>
+        <% units.forEach(unit => { %>
+        <option value="<%= unit %>"><%= unit %></option>
+        <% }); %>
       </select>
       <br />
       <label for="category">Category:</label>
       <select name="category" id="category">
-        <option value="herbs">Herbs</option>
-        <option value="spices">Spices</option>
-        <option value="sauces">Sauces</option>
-        <option value="carbs">Carbs</option>
-        <option value="sweet">Sweet</option>
+        <% categories.forEach(category => { %>
+        <option value="<%= category %>"><%= category %></option>
+        <% }); %>
+      </select>
+      <br />
+      <label for="allergens">Allergens:</label>
+      <select name="allergens" id="allergens" multiple>
+        <% allergens.forEach(allergen => { %>
+        <option value="<%= allergen %>"><%= allergen %></option>
+        <% }); %>
       </select>
       <br />
       <button type="submit">Add Ingredient</button>

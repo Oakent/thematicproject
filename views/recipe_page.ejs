@@ -15,7 +15,10 @@
       <h2>Ingredients</h2>
       <ul>
         <% recipe.ingredients.forEach(ingredient => { %>
-        <li><%= ingredient.quantity %> <%= ingredient.ingredient.name %></li>
+        <li>
+          <%= ingredient.quantity %> <%= ingredient.ingredient.unit %> <%=
+          ingredient.ingredient.name %>
+        </li>
         <% }); %>
       </ul>
       <h2>Instructions</h2>

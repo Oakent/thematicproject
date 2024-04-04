@@ -4,6 +4,7 @@ const Recipe = require("../models/recipe");
 
 exports.recipesGet = asyncHandler(async (req, res, next) => {
   const allRecipes = await Recipe.find({}).sort({ title: 1 }).exec();
+  console.log("all recipes recipe controller: " + allRecipes);
   res.render("recipes", { recipes: allRecipes });
 });
 
@@ -14,7 +15,7 @@ exports.recipeCreate = asyncHandler(async (req, res) => {
 exports.recipeGetById = asyncHandler(async (req, res, next) => {
   console.log("body id:" + req.params.id);
   const recipe = await Recipe.findById(req.params.id).exec();
-
+  console.log(recipe.ingredients);
   res.render("recipe_page", { recipe: recipe });
 });
 
