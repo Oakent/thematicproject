@@ -18,6 +18,7 @@ exports.recipeGetById = asyncHandler(async (req, res, next) => {
   console.log(recipe.ingredients);
   console.log("unit " + recipe.ingredients.ingredient.unit);
   console.log("ingredient name " + recipe.ingredients.ingredient.name);
+  console.log("test");
   res.render("recipe_page", { recipe: recipe });
 });
 
