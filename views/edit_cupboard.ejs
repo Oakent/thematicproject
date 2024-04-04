@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>user.name's Cupboard</h1>
+    <!---does not actually use users name but is a placeholder-->
+    <form action="" method="post">
+      <label for="ingredients">ingredients</label>
+      <br>
+  <% ingredients.forEach(ingredient => { %>
+    <input type="checkbox" name="ingredient_names" value="<%= ingredient.name %>" id="<%= ingredient.name %>">
+    <label for="<%= ingredient.name %>"><%= ingredient.name %></label><br>
+  <% }); %>
+      </select>
+      <button type="submit">find recipes</button>
+    </form>
+  </body>
+</html>

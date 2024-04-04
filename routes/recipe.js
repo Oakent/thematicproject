@@ -13,8 +13,8 @@ router.post("/login", userController.loginUserPost);
 router.get("/user/profile", userController.userProfileGet);
 router.put("/user/profile", userController.userProfileUpdate);
 
-router.get("/cupboard", cupboardController.cupboardGet);
-router.post("/cupboard", cupboardController.cupboardUpdate);
+router.get("/cupboard", userController.cupboardGet);
+router.post("/cupboard", userController.cupboardPost);
 
 router.get("/ingredient/create", ingredientController.add_ingredient_get);
 router.post("/ingredient/create", ingredientController.add_ingredient_post);

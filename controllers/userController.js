@@ -2,6 +2,8 @@ const express = require("express");
 const User = require("../models/user");
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
+const Ingredient = require("../models/ingredient");
+const Recipe = require("../models/recipe");
 const saltRounds = 10; // The cost factor for hashing
 
 exports.index = asyncHandler(async (req, res) => {
@@ -69,4 +71,19 @@ exports.userProfileGet = asyncHandler(async (req, res, next) => {
 
 exports.userProfileUpdate = asyncHandler(async (req, res, next) => {
   res.send("not implemented, user profile update");
+});
+
+exports.cupboardGet = asyncHandler(async (req, res, next) => {
+  const ingredient = await Ingredient.find({}).exec();
+  res.render("edit_cupboard", { ingredients: ingredient });
+});
+
+exports.cupboardPost = asyncHandler(async (req, res, next) => {
+  const ingredient_names = req.body.ingredient_names;
+  const user_recipes = await Recipe.find({
+    "ingredients.ingredient.name": { $in: ingredient_names },
+    "ingredients.ingredient.name": { $nin: ingredient_names },
+  }).exec();
+  console.log("user recipes user controller: " + user_recipes);
+  res.render("recipes", { recipes: user_recipes });
 });

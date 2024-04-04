@@ -1,7 +1,6 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const Ingredient = require("../models/ingredient");
-const ingredient = require("../models/ingredient");
 
 exports.ingredientsGet = asyncHandler(async (req, res) => {
   res.send("not implemented, ingredients get");
