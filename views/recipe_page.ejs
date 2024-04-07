@@ -14,7 +14,7 @@
       <p><strong>Time:</strong> <%= recipe.info.time %> minutes</p>
       <h2>Ingredients</h2>
       <ul>
-        <% recipe.ingredients.forEach(recipe_ingredient => { %>
+        <% recipe.populatedIngredients.forEach(recipe_ingredient => { %>
         <li>
           <%= recipe_ingredient.quantity %> <%=
           recipe_ingredient.ingredient.unit %> <%=

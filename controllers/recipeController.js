@@ -13,48 +13,56 @@ exports.recipeCreate = asyncHandler(async (req, res) => {
   res.send("not implemented, recipe create");
 });
 
-let populateIngredients = async (recipe) => {
-  await Promise.all(
-    recipe.ingredients.map(async (ingredient) => {
-      if (!ingredient.ingredient) {
-        await recipe
-          .populate("ingredients." + ingredient._id + ".ingredient")
-          .execPopulate();
-      }
-    })
-  );
+const populateIngredients = async (recipe) => {
+  const ingredientIds = recipe.ingredients.map((ingredient) => ingredient._id);
+
+  if (!ingredientIds.length) {
+    console.log("No ingredients found for this recipe.");
+    recipe.noIngredients = true;
+    return recipe;
+  }
+
+  try {
+    const ingredients = await Ingredient.find({
+      _id: { $in: ingredientIds },
+    }).select("name unit");
+
+    recipe.populatedIngredients = recipe.ingredients
+      .map((originalIngredient) => {
+        const matchingIngredient = ingredients.find((ingredient) =>
+          ingredient._id.equals(originalIngredient._id)
+        );
+
+        if (matchingIngredient) {
+          // Modify the originalIngredient object
+          return {
+            quantity: originalIngredient.quantity,
+            ingredient: {
+              name: matchingIngredient.name,
+              unit: matchingIngredient.unit,
+            },
+          };
+        } else {
+          return null; // or handle the case where the ingredient is not found
+        }
+      })
+      .filter(Boolean); // Remove any null entries from the array
+
+    return recipe;
+  } catch (error) {
+    console.error("Error populating ingredients:", error);
+    throw error;
+  }
 };
 
 exports.recipeGetById = asyncHandler(async (req, res, next) => {
   try {
     const recipe = await Recipe.findById(req.params.id);
-    const test = await populateIngredients(recipe);
-    console.log("test recipe: " + test);
-    console.log("recipe: " + recipe);
+    const populatedRecipe = await populateIngredients(recipe);
 
-    await Promise.all(
-      recipe.ingredients.map(async (ingredient) => {
-        if (!ingredient.ingredient) {
-          await recipe
-            .populate("ingredients." + ingredient._id + ".ingredient")
-            .execPopulate();
-        }
-      })
-    );
-
-    recipe.ingredients.forEach((recipeIngredient) => {
-      if (recipeIngredient && recipeIngredient.ingredient) {
-        const ingredient = recipeIngredient.ingredient;
-        console.log("Ingredient:", ingredient);
-        console.log("unit:", ingredient.unit);
-        console.log("name:", ingredient.name);
-      } else {
-        console.log("Ingredient information missing");
-      }
-    });
-    res.render("recipe_page", { recipe: recipe });
-  } catch (err) {
-    console.log("error: " + err);
+    res.render("recipe_page", { recipe: populatedRecipe });
+  } catch (error) {
+    console.error("Error fetching recipe:", error);
     res.status(404).send("Recipe not found");
   }
 });
