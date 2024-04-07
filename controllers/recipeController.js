@@ -13,19 +13,23 @@ exports.recipeCreate = asyncHandler(async (req, res) => {
   res.send("not implemented, recipe create");
 });
 
+let populateIngredients = async (recipe) => {
+  await Promise.all(
+    recipe.ingredients.map(async (ingredient) => {
+      if (!ingredient.ingredient) {
+        await recipe
+          .populate("ingredients." + ingredient._id + ".ingredient")
+          .execPopulate();
+      }
+    })
+  );
+};
+
 exports.recipeGetById = asyncHandler(async (req, res, next) => {
   try {
-    const recipe = await Recipe.findById(req.params.id)
-      .populate({
-        path: "ingredients",
-        populate: {
-          path: "ingredient",
-          model: "Ingredient",
-          select: "name unit",
-        },
-      })
-      .exec();
-
+    const recipe = await Recipe.findById(req.params.id);
+    const test = await populateIngredients(recipe);
+    console.log("test recipe: " + test);
     console.log("recipe: " + recipe);
 
     await Promise.all(
