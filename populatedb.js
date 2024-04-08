@@ -19,65 +19,149 @@ db.once("open", async () => {
   // Sample ingredients
   const ingredients = [
     {
-      name: "Flour",
-      unit: "g",
-      category: "Flour",
-      allergens: ["Gluten"],
+      name: "Pasta",
+      unit: "grams",
+      category: "Carbohydrates",
+      allergens: [],
+    },
+    {
+      name: "Brown Rice",
+      unit: "grams",
+      category: "Carbohydrates",
+      allergens: [],
+    },
+    {
+      name: "White Rice",
+      unit: "grams",
+      category: "Carbohydrates",
+      allergens: [],
+    },
+    {
+      name: "Quinoa",
+      unit: "grams",
+      category: "Carbohydrates",
+      allergens: [],
+    },
+    {
+      name: "Ham",
+      unit: "grams",
+      category: "Protein",
+      allergens: [],
+    },
+    {
+      name: "Turkey",
+      unit: "grams",
+      category: "Protein",
+      allergens: [],
+    },
+    {
+      name: "Chicken",
+      unit: "grams",
+      category: "Protein",
+      allergens: [],
+    },
+    {
+      name: "Sausages",
+      unit: "grams",
+      category: "Protein",
+      allergens: [],
     },
     {
       name: "Milk",
       unit: "ml",
       category: "Dairy",
-      allergens: ["Lactose"],
+      allergens: [],
     },
     {
-      name: "Eggs",
-      unit: "count",
-      category: "Protein",
+      name: "Yoghurt",
+      unit: "grams",
+      category: "Dairy",
+      allergens: [],
+    },
+    {
+      name: "Cheese",
+      unit: "grams",
+      category: "Dairy",
+      allergens: [],
+    },
+    {
+      name: "Apple",
+      unit: "grams",
+      category: "FruitAndVegetables",
+      allergens: [],
+    },
+    {
+      name: "Pear",
+      unit: "grams",
+      category: "FruitAndVegetables",
+      allergens: [],
+    },
+    {
+      name: "Pineapple",
+      unit: "grams",
+      category: "FruitAndVegetables",
+      allergens: [],
+    },
+    {
+      name: "Celery",
+      unit: "grams",
+      category: "FruitAndVegetables",
+      allergens: [],
+    },
+    {
+      name: "Carrot",
+      unit: "grams",
+      category: "FruitAndVegetables",
+      allergens: [],
+    },
+    {
+      name: "Butter",
+      unit: "grams",
+      category: "FatsAndSugars",
+      allergens: [],
+    },
+    {
+      name: "Margerine",
+      unit: "grams",
+      category: "FatsAndSugars",
+      allergens: [],
+    },
+    {
+      name: "Olive oil",
+      unit: "grams",
+      category: "FatsAndSugars",
+      allergens: [],
+    },
+    {
+      name: "Chocolate chips",
+      unit: "grams",
+      category: "FatsAndSugars",
+      allergens: [],
+    },
+    {
+      name: "Oregano",
+      unit: "grams",
+      category: "HerbsSauceSpices",
+      allergens: [],
+    },
+    {
+      name: "Paprika",
+      unit: "grams",
+      category: "HerbsSauceSpices",
+      allergens: [],
+    },
+    {
+      name: "Mayonnaise",
+      unit: "grams",
+      category: "HerbsSauceSpices",
       allergens: [],
     },
   ];
 
   // Sample recipes
-  const recipes = [
-    {
-      name: "Pancakes",
-      ingredients: [
-        { ingredient: ingredients[0]._id, quantity: 200 }, // 200g Flour
-        { ingredient: ingredients[1]._id, quantity: 300 }, // 300ml Milk
-        { ingredient: ingredients[2]._id, quantity: 2 }, // 2 Eggs
-      ],
-      instructions: [
-        "1. Mix all ingredients together.",
-        "2. Cook on a hot pan.",
-      ],
-      info: {
-        cuisine: "International",
-        type: "Breakfast",
-        servings: 4,
-        time: 20, // 20 minutes
-      },
-    },
-    {
-      name: "Salad",
-      ingredients: [
-        { ingredient: ingredients[0]._id, quantity: 100 }, // 100g Flour
-        { ingredient: ingredients[1]._id, quantity: 200 }, // 200ml Milk
-        { ingredient: ingredients[2]._id, quantity: 1 }, // 1 Egg
-      ],
-      instructions: ["1. Toss all ingredients together.", "2. Serve chilled."],
-      info: {
-        cuisine: "International",
-        type: "Appetizer",
-        servings: 2,
-        time: 10, // 10 minutes
-      },
-    },
-  ];
 
   // Insert sample data into the database
   Ingredient.insertMany(ingredients)
-    .then(() => Recipe.insertMany(recipes))
     .then(() => console.log("Sample data inserted successfully"))
     .catch((err) => console.error(err));
   console.log("Database populated successfully");
