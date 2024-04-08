@@ -30,13 +30,17 @@
       <div class="Shelves">
         <details class="Shelf">
           <summary>Herbs, Sauces & Spices</summary>
-          <form action="" method="post">
-            <% ingredients.forEach(ingredient => { %>
-              <% if (ingredient.category === 'HerbsSauceSpices') { %>
-                <input type="checkbox" name="ingredient_names" value="<%= ingredient.name %>" id="<%= ingredient.name %>">
-                <label for="<%= ingredient.name %>"><%= ingredient.name %></label><br>
-              <% } %>
-            <% }); %>
+            <form action="" method="post">
+              <div class= "IngredientGrid">
+                <% ingredients.forEach(ingredient => { %>
+                  <% if (ingredient.category === 'HerbsSauceSpices') { %>
+                    <div class = "IngredientItem">
+                      <input type="checkbox" name="ingredient_names" value="<%= ingredient.name %>" id="<%= ingredient.name %>">
+                      <label for="<%= ingredient.name %>"><%= ingredient.name %></label>
+                    </div>
+                  <% } %>
+                <% }); %>
+              </div>
             <button type="submit">find recipes</button>
           </form>
         </details>
@@ -46,13 +50,17 @@
         <details class="Shelf">
           <summary>Carbohydrates</summary>
           <form action="" method="post">
-            <% ingredients.forEach(ingredient => { %>
-              <% if (ingredient.category === 'Carbohydrates') { %>
-                <input type="checkbox" name="ingredient_names" value="<%= ingredient.name %>" id="<%= ingredient.name %>">
-                <label for="<%= ingredient.name %>"><%= ingredient.name %></label><br>
-              <% } %>
-            <% }); %>
-            <button type="submit">find recipes</button>
+            <div class= "IngredientGrid">
+              <% ingredients.forEach(ingredient => { %>
+                <% if (ingredient.category === 'Carbohydrates') { %>
+                  <div class = "IngredientItem">
+                    <input type="checkbox" name="ingredient_names" value="<%= ingredient.name %>" id="<%= ingredient.name %>">
+                    <label for="<%= ingredient.name %>"><%= ingredient.name %></label>
+                  </div>
+                <% } %>
+              <% }); %>
+            </div>
+          <button type="submit">find recipes</button>
         </details>
         <div class="ShelfFrame"></div>
         <div class="ShelfBottom"></div>
@@ -60,13 +68,17 @@
         <details class="Shelf">
           <summary>Fats and Sugars</summary>
           <form action="" method="post">
-            <% ingredients.forEach(ingredient => { %>
-              <% if (ingredient.category === 'FatsAndSugars') { %>
-                <input type="checkbox" name="ingredient_names" value="<%= ingredient.name %>" id="<%= ingredient.name %>">
-                <label for="<%= ingredient.name %>"><%= ingredient.name %></label><br>
-              <% } %>
-            <% }); %>
-            <button type="submit">find recipes</button>
+            <div class= "IngredientGrid">
+              <% ingredients.forEach(ingredient => { %>
+                <% if (ingredient.category === 'FatsAndSugars') { %>
+                  <div class = "IngredientItem">
+                    <input type="checkbox" name="ingredient_names" value="<%= ingredient.name %>" id="<%= ingredient.name %>">
+                    <label for="<%= ingredient.name %>"><%= ingredient.name %></label>
+                  </div>
+                <% } %>
+              <% }); %>
+            </div>
+          <button type="submit">find recipes</button>
         </details>
         <div class="ShelfFrame"></div>
         <div class="ShelfBottom"></div>
@@ -77,37 +89,49 @@
           <details class="FridgeShelf" id="top">
             <summary>Dairy</summary>
             <form action="" method="post">
-              <% ingredients.forEach(ingredient => { %>
-                <% if (ingredient.category === 'Dairy') { %>
-                  <input type="checkbox" name="ingredient_names" value="<%= ingredient.name %>" id="<%= ingredient.name %>">
-                  <label for="<%= ingredient.name %>"><%= ingredient.name %></label><br>
-                <% } %>
-              <% }); %>
-              <button type="submit">find recipes</button>
+              <div class= "IngredientGrid">
+                <% ingredients.forEach(ingredient => { %>
+                  <% if (ingredient.category === 'Dairy') { %>
+                    <div class = "IngredientItem">
+                      <input type="checkbox" name="ingredient_names" value="<%= ingredient.name %>" id="<%= ingredient.name %>">
+                      <label for="<%= ingredient.name %>"><%= ingredient.name %></label>
+                    </div>
+                  <% } %>
+                <% }); %>
+              </div>
+            <button type="submit">find recipes</button>
           </details>
 
           <details class="FridgeShelf" id="middle">
             <summary>Fruit & Vegetables</summary>
             <form action="" method="post">
-              <% ingredients.forEach(ingredient => { %>
-                <% if (ingredient.category === 'FruitAndVegetables') { %>
-                  <input type="checkbox" name="ingredient_names" value="<%= ingredient.name %>" id="<%= ingredient.name %>">
-                  <label for="<%= ingredient.name %>"><%= ingredient.name %></label><br>
-                <% } %>
-              <% }); %>
-              <button type="submit">find recipes</button>
+              <div class= "IngredientGrid">
+                <% ingredients.forEach(ingredient => { %>
+                  <% if (ingredient.category === 'FruitAndVegetables') { %>
+                    <div class = "IngredientItem">
+                      <input type="checkbox" name="ingredient_names" value="<%= ingredient.name %>" id="<%= ingredient.name %>">
+                      <label for="<%= ingredient.name %>"><%= ingredient.name %></label>
+                    </div>
+                  <% } %>
+                <% }); %>
+              </div>
+            <button type="submit">find recipes</button>
           </details>
 
           <details class="FridgeShelf" id="bottom">
             <summary>Protein</summary>
             <form action="" method="post">
-              <% ingredients.forEach(ingredient => { %>
-                <% if (ingredient.category === 'Protein') { %>
-                  <input type="checkbox" name="ingredient_names" value="<%= ingredient.name %>" id="<%= ingredient.name %>">
-                  <label for="<%= ingredient.name %>"><%= ingredient.name %></label><br>
-                <% } %>
-              <% }); %>
-              <button type="submit">find recipes</button>
+              <div class= "IngredientGrid">
+                <% ingredients.forEach(ingredient => { %>
+                  <% if (ingredient.category === 'Protein') { %>
+                    <div class = "IngredientItem">
+                      <input type="checkbox" name="ingredient_names" value="<%= ingredient.name %>" id="<%= ingredient.name %>">
+                      <label for="<%= ingredient.name %>"><%= ingredient.name %></label>
+                    </div>
+                  <% } %>
+                <% }); %>
+              </div>
+            <button type="submit">find recipes</button>
           </details>
         </div>
         <div class="FridgeDoor"></div>

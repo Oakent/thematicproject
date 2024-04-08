@@ -118,7 +118,7 @@ input[type="text"]{
   border-width: 3px;
   padding: 10px;
   flex: 1 0 auto;
-  height: 380px;
+  min-height: 380px;
 }
 
 .FridgeDoor{
@@ -166,4 +166,19 @@ input[type="text"]{
 .ShelfItems{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+
+.IngredientGrid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.IngredientItem {
+  display: flex;
+  align-items: center;
+}
+
+.IngredientItem label {
+  margin-left: 5px;
 }
