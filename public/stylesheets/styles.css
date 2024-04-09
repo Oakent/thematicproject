@@ -73,8 +73,6 @@ input[type="text"]{
   width: 88.5%;
   margin: 0 auto;
   padding: 20px;
-  border-bottom: red;
-  border-bottom-style: solid;
 }
 
 .ShelfBottom{
@@ -132,11 +130,6 @@ input[type="text"]{
   margin-left: -4px;
 }
 
-.Handle{
-  border: brown;
-  border-style: solid;
-}
-
 .FridgeShelf {
   margin: 0 auto;
   padding: 10px;
@@ -172,6 +165,24 @@ input[type="text"]{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 5px;
+  transition: all 235ms ease-in-out;
+}
+
+.IngredientGrid input[type="checkbox"]{
+  background-color: aliceblue;
+  border-bottom-right-radius: 15px 250px;
+  border-bottom-left-radius: 250px 15px;
+  border-top-right-radius: 250px 15px;
+  border-top-left-radius: 15px 250px;
+}
+
+.IngredientGrid input[type="checkbox"]:checked {
+  background-color: #333;
+}
+
+.IngredientGrid input[type="checkbox"]:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 1px, 0);
 }
 
 .IngredientItem {
@@ -191,10 +202,22 @@ input[type="text"]{
   box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
   cursor: pointer;
   transition: all 235ms ease-in-out;
-  border-bottom-right-radius: 15px 255px;
-  border-bottom-left-radius: 225px 15px;
-  border-top-right-radius: 255px 15px;
-  border-top-left-radius: 15px 225px;
+  border-bottom-right-radius: 15px 200px;
+  border-bottom-left-radius: 200px 15px;
+  border-top-right-radius: 200px 15px;
+  border-top-left-radius: 15px 200px;
   margin-top: 20px;
+  color: #333;
   margin-bottom: 0px;
+  max-width: 80%;
+  margin-left: 10%;
+}
+
+.IngredientBtn:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.IngredientBtn:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
