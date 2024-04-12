@@ -1,7 +1,6 @@
 body{
   background-color: rgb(237, 237, 203);
   font-family: 'Courier New', Courier, monospace;
-  color:rgb(0, 0, 0);
 }
 
 .Container {
@@ -209,8 +208,9 @@ input[type="text"]{
   margin-top: 20px;
   color: #333;
   margin-bottom: 0px;
-  max-width: 80%;
-  margin-left: 10%;
+  max-width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .IngredientBtn:hover {
