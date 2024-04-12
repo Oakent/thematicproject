@@ -9,7 +9,7 @@
   #{$css-var-prefix}background-color: #{mix($slate-950, $slate-900)};
 
   // Text color
-  #{$css-var-prefix}color: #{$slate-950};
+  #{$css-var-prefix}color: #{$black};
 
   // Text selection color
   #{$css-var-prefix}text-selection-color: theme-colors.get("text-selection-color", "dark");
