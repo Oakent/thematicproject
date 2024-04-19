@@ -6,6 +6,11 @@ const ingredientController = require("../controllers/ingredientController");
 const recipeController = require("../controllers/recipeController");
 const userController = require("../controllers/userController");
 
+
+//user authentication middleware
+const authenticateUser = require('../middleware/authenticateUser');
+const viableRecipeController = require('../controllers/viableRecipeController');
+
 router.get("/register", userController.registerUserGet);
 router.post("/register", userController.registerUserPost);
 router.get("/login", userController.loginUserGet);
@@ -35,6 +40,12 @@ router.post("/viableRecipes", recipeController.viableRecipePost);
 router.get("/viableRecipes/:id", recipeController.viableRecipeGetById);
 router.post("/viableRecipes/:id", recipeController.viableRecipePost);
 */
+
+
+// user authentication middleware
+// router.get('/viable-recipes', authenticateUser, viableRecipeController.getUserIngredients);
+// router.post('/viable-recipes', authenticateUser, viableRecipeController.addUserIngredient);
+
 
 console.log("routes are loaded");
 

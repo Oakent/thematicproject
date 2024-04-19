@@ -50,10 +50,29 @@ async function loginUser(Email, Password) {
     }
 
     console.log("User logged in:", user);
-    return user;
+    return user;  
   } catch (err) {
     console.error(err);
     throw err;
+  }
+}
+
+async function logoutUser(req, res) {
+  try {
+    if (req.session.user) {  // Assuming 'user' holds the session information
+      req.session.destroy(err => {
+        if (err) {
+          throw new Error("Failed to destroy the session");
+        }
+        res.clearCookie('connect.sid'); // clear session cookie
+        res.send("User logged out successfully");
+      });
+    } else {
+      throw new Error("No active session found");
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(err.message);
   }
 }
 
