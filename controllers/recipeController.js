@@ -10,7 +10,8 @@ exports.recipesGet = asyncHandler(async (req, res, next) => {
 });
 
 exports.recipe_create_get = asyncHandler(async (req, res) => {
-  res.send("not implemented, recipe create get");
+  const allRecipes = (await Recipe.find({})).sort({ title: 1 }).exec();
+  res.render("add_recipe", { recipes: allRecipes });
 });
 
 exports.recipe_create_post = asyncHandler(async (req, res, next) => {

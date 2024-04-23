@@ -5,7 +5,7 @@
 
   <label for="cuisine">Cuisine:</label>
   <select id="cuisine" name="cuisine" required>
-    <% cuisines.forEach(cuisine => { %>
+    <% info.cuisine.forEach(cuisine => { %>
     <option value="<%= cuisine %>"><%= cuisine %></option>
     <% }); %>
   </select>
@@ -17,7 +17,7 @@
 
   <label for="type">Type of Dish:</label>
   <select id="type" name="type" required>
-    <% dishTypes.forEach(type => { %>
+    <% info.type.forEach(type => { %>
     <option value="<%= type %>"><%= type %></option>
     <% }); %>
   </select>
