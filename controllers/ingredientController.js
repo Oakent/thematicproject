@@ -2,7 +2,7 @@ const express = require("express");
 const asyncHandler = require("express-async-handler");
 const Ingredient = require("../models/ingredient");
 
-exports.ingredientsGet = asyncHandler(async (req, res) => {
+exports.ingredientsGet = asyncHandler(async (req, res, next) => {
   res.send("not implemented, ingredients get");
 });
 
@@ -31,7 +31,7 @@ exports.add_ingredient_get = asyncHandler(async (req, res, next) => {
   });
 });
 
-exports.add_ingredient_post = asyncHandler(async (req, res) => {
+exports.add_ingredient_post = asyncHandler(async (req, res, next) => {
   const ingredient = new Ingredient({
     name: req.body.ingredient_name,
     unit: req.body.unit,
