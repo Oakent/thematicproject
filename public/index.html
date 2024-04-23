@@ -14,7 +14,7 @@
   <body>
     <main class = "Container">
       <div class="NavBar">
-        <button type="button" class="Btn" id="settings">
+        <button type="button" class = "NavBtn" id="settings">
           <img src="/public/img/settings.svg" alt="Settings Button" />
         </button>
         <input
@@ -22,10 +22,10 @@
           placeholder="Search recipes..."
           class="SearchInput"
         />
-        <button type="button" class="Btn" id="searchBtn">
+        <button class="NavBtn" id="searchBtn">
           <img src="/public/img/search.svg" alt="Search Button" />
         </button>
-        <button type="button" class="Btn" id="searchAdj">
+        <button class="NavBtn" id="searchAdj">
           <img src="/public/img/adjustments.svg" alt="Search Adjustments" />
         </button>
       </div>
@@ -54,20 +54,22 @@
 
       <div class="Fridge">
         <div class="FridgeMain">
-          <details class="FridgeShelf" id="top">
-            <summary>Dairy</summary>
-            <p>Dairy accordion</p>
-          </details>
+          <div class = "grid">
+            <details class="FridgeShelf" id="top">
+              <summary>Dairy</summary>
+              <p class = "FridgeItems">Dairy accordion</p>
+            </details>
 
-          <details class="FridgeShelf" id="middle">
-            <summary>Fruit & Veg</summary>
-            <p>F+V accordion</p>
-          </details>
+            <details class="FridgeShelf" id="middle">
+              <summary>Fruit & Veg</summary>
+              <p>F+V accordion</p>
+            </details>
 
-          <details class="FridgeShelf" id="bottom">
-            <summary>Meat</summary>
-            <p>Meat accordion</p>
-          </details>
+            <details class="FridgeShelf" id="bottom">
+              <summary>Meat</summary>
+              <p>Meat accordion</p>
+            </details>
+          </div>
         </div>
         <div class="FridgeDoor"></div>
       </div>
