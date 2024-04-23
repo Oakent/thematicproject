@@ -9,8 +9,12 @@ exports.recipesGet = asyncHandler(async (req, res, next) => {
   res.render("recipes", { recipes: allRecipes });
 });
 
-exports.recipeCreate = asyncHandler(async (req, res) => {
-  res.send("not implemented, recipe create");
+exports.recipe_create_get = asyncHandler(async (req, res) => {
+  res.send("not implemented, recipe create get");
+});
+
+exports.recipe_create_post = asyncHandler(async (req, res, next) => {
+  res.send("not implemented, recipe create post");
 });
 
 const populateIngredients = async (recipe) => {
@@ -67,7 +71,6 @@ exports.recipeGetById = asyncHandler(async (req, res, next) => {
   }
 });
 
-console.log();
 exports.recipeUpdate = asyncHandler(async (req, res) => {
   res.send("not implemented, recipe update");
 });

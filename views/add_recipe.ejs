@@ -1,0 +1,68 @@
+<form method="POST" action="/recipes">
+  <label for="name">Recipe Name:</label>
+  <input type="text" id="name" name="name" required />
+  <br />
+
+  <label for="cuisine">Cuisine:</label>
+  <select id="cuisine" name="cuisine" required>
+    <% cuisines.forEach(cuisine => { %>
+    <option value="<%= cuisine %>"><%= cuisine %></option>
+    <% }); %>
+  </select>
+  <br />
+
+  <label for="servings">Servings:</label>
+  <input type="number" id="servings" name="servings" required />
+  <br />
+
+  <label for="type">Type of Dish:</label>
+  <select id="type" name="type" required>
+    <% dishTypes.forEach(type => { %>
+    <option value="<%= type %>"><%= type %></option>
+    <% }); %>
+  </select>
+  <br />
+
+  <label for="time">Preparation Time (minutes):</label>
+  <input type="number" id="time" name="time" required />
+  <br />
+
+  <label for="ingredients">Ingredients:</label>
+  <div id="ingredients">
+    <!-- Ingredient input fields will be added dynamically -->
+  </div>
+  <button type="button" onclick="addIngredientField()">Add Ingredient</button>
+  <br />
+
+  <label for="instructions">Instructions:</label>
+  <textarea id="instructions" name="instructions" rows="5" required></textarea>
+  <br />
+
+  <button type="submit">Create Recipe</button>
+</form>
+
+<script>
+  // Function to add ingredient input field
+  function addIngredientField() {
+    const ingredientField = `
+      <div>
+        <select name="ingredient[]" required>
+          <!-- Populate dropdown with existing ingredients from the database -->
+          <% ingredients.forEach(ingredient => { %>
+            <option value="<%= ingredient._id %>"><%= ingredient.name %></option>
+          <% }); %>
+        </select>
+        <input type="number" name="quantity[]" min="1" required>
+        <button type="button" onclick="removeIngredientField(this)">Remove</button>
+      </div>
+    `;
+    document
+      .getElementById("ingredients")
+      .insertAdjacentHTML("beforeend", ingredientField);
+  }
+
+  // Function to remove ingredient input field
+  function removeIngredientField(button) {
+    button.parentNode.remove();
+  }
+</script>
