@@ -10,8 +10,10 @@ exports.recipesGet = asyncHandler(async (req, res, next) => {
 });
 
 exports.recipe_create_get = asyncHandler(async (req, res) => {
-  const allRecipes = (await Recipe.find({})).sort({ title: 1 }).exec();
-  res.render("add_recipe", { recipes: allRecipes });
+  const cuisines = await Recipe.distinct("info.cuisine");
+  const dishTypes = await Recipe.distinct("info.type");
+  const ingredients = await Ingredient.find({}).sort({ name: 1 }).exec();
+  res.render("add_recipe", { cuisines, dishTypes, ingredients });
 });
 
 exports.recipe_create_post = asyncHandler(async (req, res, next) => {
