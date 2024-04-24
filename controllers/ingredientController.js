@@ -21,15 +21,10 @@ exports.add_ingredient_get = asyncHandler(async (req, res, next) => {
     });
   });
 
-  
 
   const units = Array.from(unitsSet);
   const categories = Array.from(categoriesSet);
   const allergens = Array.from(allergensSet);
-
-
-  
-  categories.push("Other");
 
   res.render("add_ingredient", {
     allergens: allergens,

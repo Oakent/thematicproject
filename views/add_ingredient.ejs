@@ -46,22 +46,12 @@
         </select>
         <br />
 
-        
-        <label for="new_categories">New Categories:</label>
-        <input type="text" name="new_categories" id="new_categories" />
-        <br />
-
         <label for="allergens">Allergens:</label>
         <select name="allergens" id="allergens" multiple>
           <% allergens.forEach(allergen => { %>
           <option value="<%= allergen %>"><%= allergen %></option>
           <% }); %>
         </select>
-        <br />
-
-        
-        <label for="new_allergens">New Allergens:</label>
-        <input type="text" name="new_allergens" id="new_allergens" />
         <br />
 
         <button type="submit">Add Ingredient</button>
