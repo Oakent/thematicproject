@@ -21,15 +21,9 @@ exports.add_ingredient_get = asyncHandler(async (req, res, next) => {
     });
   });
 
-  
-
   const units = Array.from(unitsSet);
   const categories = Array.from(categoriesSet);
   const allergens = Array.from(allergensSet);
-
-
-  
-  categories.push("Other");
 
   res.render("add_ingredient", {
     allergens: allergens,
@@ -40,7 +34,7 @@ exports.add_ingredient_get = asyncHandler(async (req, res, next) => {
 
 exports.add_ingredient_post = asyncHandler(async (req, res, next) => {
   // Extract new categories and allergens from the request and ensure they are unique
-try {
+  try {
     // Create new ingredient
     const ingredient = new Ingredient({
       name: req.body.ingredient_name,
@@ -57,8 +51,6 @@ try {
     return next(error);
   }
 });
-
-
 
 exports.ingredientGetById = asyncHandler(async (req, res, next) => {
   res.send("not implemented, ingredient get by id");
