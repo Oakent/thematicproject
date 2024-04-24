@@ -37,74 +37,9 @@
     </div>
   </div>
   <button type="button" id="add-ingredient-btn">Add Ingredient</button>
-
-  <script>
-    // Function to create a new ingredient field element
-    function createIngredientField() {
-      const ingredientField = document.createElement("div");
-      ingredientField.classList.add("ingredient-field");
-
-      const ingredientSelect = document.createElement("select");
-      ingredientSelect.name = "ingredient[]";
-      ingredientSelect.required = true;
-
-      const optionDefault = document.createElement("option");
-      optionDefault.value = "";
-      optionDefault.innerText = "Select Ingredient";
-      ingredientSelect.appendChild(optionDefault);
-
-      const quantityInput = document.createElement("input");
-      quantityInput.type = "number";
-      quantityInput.name = "quantity[]";
-      quantityInput.min = 1;
-      quantityInput.required = true;
-
-      const removeButton = document.createElement("button");
-      removeButton.classList.add("remove-ingredient");
-      removeButton.innerText = "Remove";
-
-      ingredientField.appendChild(ingredientSelect);
-      ingredientField.appendChild(quantityInput);
-      ingredientField.appendChild(removeButton);
-
-      return ingredientField;
-    }
-
-    // Function to populate ingredient options (assuming you have ingredient data available in JavaScript)
-    function populateIngredientOptions(selectElement, ingredients) {
-      ingredients.forEach((ingredient) => {
-        const optionIngredient = document.createElement("option");
-        optionIngredient.value = ingredient.id; // Replace with appropriate identifier property
-        optionIngredient.innerText = `${ingredient.name} - ${ingredient.unit}`;
-        selectElement.appendChild(optionIngredient);
-      });
-    }
-
-    // Add event listener to the "Add Ingredient" button
-    document
-      .getElementById("add-ingredient-btn")
-      .addEventListener("click", function () {
-        const ingredientContainer = document.getElementById(
-          "ingredient-container"
-        );
-        const newIngredientField = createIngredientField();
-        populateIngredientOptions(
-          newIngredientField.querySelector("select"),
-          ingredients
-        ); // Assuming "ingredients" is available in JavaScript
-        ingredientContainer.appendChild(newIngredientField);
-      });
-
-    // Event delegation for removing ingredient fields
-    document
-      .getElementById("ingredient-container")
-      .addEventListener("click", function (event) {
-        if (event.target.classList.contains("remove-ingredient")) {
-          event.target.parentNode.remove();
-        }
-      });
-  </script>
   <br />
+
+  <script src="/js/add_recipe.js" defer></script>
 
   <label for="instructions">Instructions:</label>
   <textarea id="instructions" name="instructions" rows="5" required></textarea>
