@@ -17,7 +17,46 @@ exports.recipe_create_get = asyncHandler(async (req, res) => {
 });
 
 exports.recipe_create_post = asyncHandler(async (req, res, next) => {
-  res.send("not implemented, recipe create post");
+  console.log("req.body: ", req.body); // Log the request body for inspection
+
+  // Check for missing 'name' field
+  if (!req.body.name) {
+    return res.status(400).send("Missing required field: name");
+  }
+
+  // Check if 'ingredientsData' field exists
+  if (!req.body.ingredientsData) {
+    return res.status(400).send("Missing required field: ingredientsData");
+  }
+
+  const ingredientsData = JSON.parse(req.body.ingredientsData);
+
+  const ingredients = ingredientsData.map((ingredient) => {
+    return {
+      _id: ingredient._id,
+      quantity: ingredient.quantity,
+    };
+  });
+
+  const recipe = new Recipe({
+    title: req.body.name,
+    info: {
+      cuisine: req.body.cuisine,
+      type: req.body.type,
+      servings: req.body.servings,
+      time: req.body.time,
+    },
+    ingredients,
+    instructions: req.body.instructions,
+  });
+
+  try {
+    await recipe.save();
+    res.redirect("/");
+  } catch (error) {
+    console.error("Error saving recipe:", error);
+    res.status(500).send("Error saving recipe");
+  }
 });
 
 const populateIngredients = async (recipe) => {
