@@ -21,9 +21,16 @@ exports.add_ingredient_get = asyncHandler(async (req, res, next) => {
     });
   });
 
+  
+
   const units = Array.from(unitsSet);
   const categories = Array.from(categoriesSet);
   const allergens = Array.from(allergensSet);
+
+
+  
+  categories.push("Other");
+
   res.render("add_ingredient", {
     allergens: allergens,
     units: units,
@@ -32,16 +39,26 @@ exports.add_ingredient_get = asyncHandler(async (req, res, next) => {
 });
 
 exports.add_ingredient_post = asyncHandler(async (req, res, next) => {
-  const ingredient = new Ingredient({
-    name: req.body.ingredient_name,
-    unit: req.body.unit,
-    category: req.body.category,
-    allergens: req.body.allergens,
-  });
-  console.log(ingredient);
-  await ingredient.save();
-  res.redirect("/");
+  // Extract new categories and allergens from the request and ensure they are unique
+try {
+    // Create new ingredient
+    const ingredient = new Ingredient({
+      name: req.body.ingredient_name,
+      unit: req.body.unit,
+      category: req.body.category,
+      allergens: req.body.allergens,
+    });
+
+    console.log(ingredient);
+    await ingredient.save();
+    res.redirect("/");
+  } catch (error) {
+    // Handle errors possibly thrown by database operations
+    return next(error);
+  }
 });
+
+
 
 exports.ingredientGetById = asyncHandler(async (req, res, next) => {
   res.send("not implemented, ingredient get by id");
