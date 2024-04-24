@@ -93,19 +93,19 @@ async function removeIngredient(name) {
 }
 
 // Function to add a new category
-async function addCategory(category) {
-  try {
-    const newCategory = new Category({
-      name: category,
-    });
-    await newCategory.save();
-    console.log("Category added:", newCategory);
-    return newCategory;
-  } catch (err) {
-    console.error(err);
-    throw err;
-  }
-}
+// async function addCategory(category) {
+//   try {
+//     const newCategory = new Category({
+//       name: category,
+//     });
+//     await newCategory.save();
+//     console.log("Category added:", newCategory);
+//     return newCategory;
+//   } catch (err) {
+//     console.error(err);
+//     throw err;
+//   }
+// }
 
 module.exports = {
   addIngredient,

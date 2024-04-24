@@ -21,6 +21,10 @@ exports.add_ingredient_get = asyncHandler(async (req, res, next) => {
     });
   });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8da45d6a9a0898dbe67330f48a74f3b407a2907
   const units = Array.from(unitsSet);
   const categories = Array.from(categoriesSet);
   const allergens = Array.from(allergensSet);
