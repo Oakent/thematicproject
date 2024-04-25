@@ -3,11 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/pico/css/pico.classless.min.css"/>
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <title>Recipes</title>
   </head>
+
   <body>
-    <% recipes.forEach(recipe => { %>
-    <p><a href="<%= recipe.url %>"><%= recipe.name %></a></p>
-    <% }); %>
+    <main class = "Container">
+
+      
+      <div class="NavBar">
+        <button type="button" class="NavBtn" id="settings">
+          <img src="/img/settings.svg" alt="Settings Button" />
+        </button>
+        <input type="text" placeholder="Search recipes..." class="Search" id ="recipeSearch"/>
+        <button type="button" class="NavBtn" id="searchBtn">
+          <img src="/img/search.svg" alt="Search Button" />
+        </button>
+        <button type="button" class="NavBtn" id="searchAdj">
+          <img src="/img/adjustments.svg" alt="Search Adjustments" />
+        </button>
+      </div>
+
+      <% recipes.forEach(recipe => { %>
+        <a href="<%= recipe.url %>">
+          <div class = "RecipeContainer">
+            <p><%= recipe.name %></p>
+            <div class = "RecipeInfo">
+              <p>This is information about the recipe</p>
+            </div>
+          </div>
+        </a>
+      <% }); %>
+
+
+    </main>
   </body>
 </html>
