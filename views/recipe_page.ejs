@@ -3,9 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recipe Details</title>
+    <link rel="stylesheet" href="/stylesheets/pico/css/pico.classless.min.css"/>
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <title><%= recipe.name %></title>
   </head>
+
   <body>
+    <main class = "Container">
+
+    <div class="NavBar">
+      <button type="button" class="NavBtn" id="settings">
+        <img src="/img/settings.svg" alt="Settings Button" />
+      </button>
+      <input type="text" placeholder="Search recipes..." class="Search" id ="recipeSearch"/>
+      <button type="button" class="NavBtn" id="searchBtn">
+        <img src="/img/search.svg" alt="Search Button" />
+      </button>
+      <button type="button" class="NavBtn" id="searchAdj">
+        <img src="/img/adjustments.svg" alt="Search Adjustments" />
+      </button>
+    </div>
+
     <div>
       <h1><%= recipe.name %></h1>
       <p><strong>Cuisine:</strong> <%= recipe.info.cuisine %></p>
@@ -29,5 +47,7 @@
         <% }); %>
       </ol>
     </div>
+
+    </main>
   </body>
 </html>

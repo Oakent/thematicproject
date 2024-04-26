@@ -1,16 +1,10 @@
-/* Blue-grey Dark scheme (Forced) */
-/* Enabled if forced with data-theme="dark" */
-[data-theme="dark"] {
-  --primary: #ff0000;
-  --primary-hover: #607d8b;
-  --primary-focus: rgba(84, 110, 122, 0.25);
-  --primary-inverse: #FFF;
-}
+
 
 /*Used by all pages*/
 body{
   background-color: rgb(237, 237, 203);
   font-family: 'Courier New', Courier, monospace;
+  color: black;
   font-size: 1.1em;
 }
 
@@ -206,10 +200,22 @@ input[type="text"]{
   color: #333;
 }
 
+.RecipeContainer:hover{
+  transform: scale(1.01);
+}
+
 .RecipeContainer{
   background-color: #fefae0;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   text-decoration: none;
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 30px;
+  transition: all 235ms ease-in-out;
+  border-left:rgb(216, 196, 143);
+  border-width: 10px;
+  border-left-style: solid;
+  border-top-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
