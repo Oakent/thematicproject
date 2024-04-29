@@ -81,8 +81,7 @@ exports.cupboardGet = asyncHandler(async (req, res, next) => {
 exports.cupboardPost = asyncHandler(async (req, res, next) => {
   const ingredient_names = req.body.ingredient_names;
   const user_recipes = await Recipe.find({
-    "ingredients.ingredient.name": { $in: ingredient_names },
-    "ingredients.ingredient.name": { $nin: ingredient_names },
+    "ingredients.ingredient.name": { $all: ingredient_names },
   }).exec();
   console.log("user recipes user controller: " + user_recipes);
   res.render("recipes", { recipes: user_recipes });
