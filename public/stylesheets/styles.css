@@ -71,6 +71,11 @@ input[type="text"]{
   margin: 0 auto;
 }
 
+.NavBtn a {
+  display: inline-block;
+  width: 100%;
+}
+
 
 /*Used by the cupboard*/
 .Shelf{
@@ -113,7 +118,7 @@ input[type="text"]{
   margin: 0 auto;
 }
 
-.IngredientForm{
+.IngredientShelves{
   background-color: #c9c7b8;
   border-style: solid;
   border-width: 2px;
@@ -126,7 +131,7 @@ input[type="text"]{
 }
 
 #ingredientSearch{
-  max-width: 60%;
+  max-width: 45%;
   height: 10%;
   margin-top: 5px;
 }
@@ -136,6 +141,7 @@ input[type="text"]{
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 5px;
   transition: all 235ms ease-in-out;
+  padding: 10px;
 }
 
 .IngredientGrid input[type="checkbox"]{
@@ -185,12 +191,12 @@ input[type="text"]{
   max-height: 30%;
 }
 
-.IngredientBtn:hover {
+.IngredientUpdate:hover {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
 }
 
-.IngredientBtn:focus {
+.IngredientUpdate:focus {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
 

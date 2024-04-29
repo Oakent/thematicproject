@@ -18,54 +18,6 @@ db.once("open", async () => {
 
   // Sample ingredients
   const ingredients = [
-    {
-      name: "Carrot",
-      unit: "grams",
-      category: "Fruit and Vegetables",
-      allergens: [],
-    },
-    {
-      name: "Butter",
-      unit: "grams",
-      category: "Fats and Sugars",
-      allergens: [],
-    },
-    {
-      name: "Margerine",
-      unit: "grams",
-      category: "Fats and Sugars",
-      allergens: [],
-    },
-    {
-      name: "Olive oil",
-      unit: "grams",
-      category: "Fats and Sugars",
-      allergens: [],
-    },
-    {
-      name: "Chocolate chips",
-      unit: "grams",
-      category: "Fats and Sugars",
-      allergens: [],
-    },
-    {
-      name: "Oregano",
-      unit: "grams",
-      category: "Herbs Sauces and Spices",
-      allergens: [],
-    },
-    {
-      name: "Paprika",
-      unit: "grams",
-      category: "Herbs, Sauces and Spices",
-      allergens: [],
-    },
-    {
-      name: "Mayonnaise",
-      unit: "grams",
-      category: "Herbs, Sauces and Spices",
-      allergens: [],
-    },
   ];
 
 const sampleRecipe = new Recipe({
