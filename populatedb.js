@@ -53,35 +53,35 @@ const sampleRecipe = new Recipe({
   name: "Ham Sandwich",
     ingredients: [
       {
-        ingredient: "mustard object id",
+        ingredient: "mustard 662e53fefda19ac89fc0636d",
         quantity: 10,
       },
       {
-        ingredient: "mayonnaise object id",
+        ingredient: "mayonnaise 66146c636ba443c4e4997df9",
         quantity: 10,
       },
       {
-        ingredient: "white bread object id",
+        ingredient: "white bread 662e5472fda19ac89fc06373",
         quantity: 80,
       },
       {
-        ingredient: "ham object id",
+        ingredient: "ham 662e54a9fda19ac89fc06377",
         quantity: 60,
       },
       {
-        ingredient: "cheese object id",
+        ingredient: "cheese 66146c636ba443c4e4997ded",
         quantity: 50,
       },
       {
-        ingredient: "egg object id",
+        ingredient: "egg 662e552ffda19ac89fc06382",
         quantity: 60,
       },
       {
-        ingredient: "milk object id",
+        ingredient: "milk 66146c636ba443c4e4997deb",
         quantity: 30,
       },
       {
-        ingredient: "butter object id",
+        ingredient: "butter 66297db2f6ef533ec7744f8b",
         quantity: 30,
       },
     ],
@@ -108,39 +108,39 @@ const sampleRecipe = new Recipe({
     name: "Chocolate Fudge Cake",
     ingredients: [
       {
-        ingredient: "sunflower oil object id",
+        ingredient: "sunflower oil 662e5605fda19ac89fc0638c",
         quantity: 150,
       },
       {
-        ingredient: "flour object id",
+        ingredient: "flour 662e5625fda19ac89fc06390",
         quantity: 175,
       },
       {
-        ingredient: "cocoa powder object id",
+        ingredient: "cocoa powder 662e5644fda19ac89fc06394",
         quantity: 70,
       },
       {
-        ingredient: "baking soda object id",
+        ingredient: "baking soda 662e5662fda19ac89fc06398",
         quantity: 5,
       },
       {
-        ingredient: "sugar object id",
+        ingredient: "sugar 662e5686fda19ac89fc0639c",
         quantity: 375,
       },
       {
-        ingredient: "golden syrup object id",
+        ingredient: "golden syrup 662e56b6fda19ac89fc063a0",
         quantity: 30,
       },
       {
-        ingredient: "egg object id",
+        ingredient: "egg 662e552ffda19ac89fc06382",
         quantity: 2,
       },
       {
-        ingredient: "milk object id",
+        ingredient: "milk 66146c636ba443c4e4997deb",
         quantity: 200,
       },
       {
-        ingredient: "butter object id",
+        ingredient: "butter 66297db2f6ef533ec7744f8b",
         quantity: 100,
       },
     ],
@@ -169,39 +169,39 @@ const sampleRecipe = new Recipe({
     name: "Sweet Sour Chicken",
     ingredients: [
       {
-        ingredient: "tomato ketchup object id",
+        ingredient: "tomato ketchup 662e5738fda19ac89fc063ad",
         quantity: 135,
       },
       {
-        ingredient: "vinegar object id",
+        ingredient: "vinegar 662e575efda19ac89fc063b1",
         quantity: 45,
       },
       {
-        ingredient: "sugar object id",
+        ingredient: "sugar 662e5686fda19ac89fc0639c",
         quantity: 60,
       },
       {
-        ingredient: "garlic clove object id",
+        ingredient: "garlic clove 662feee2329efd208bcfacc1",
         quantity: 20,
       },
       {
-        ingredient: "chicken object id",
+        ingredient: "chicken 66146c636ba443c4e4997de9",
         quantity: 800,
       },
       {
-        ingredient: "onion object id",
+        ingredient: "onion 662e57fdfda19ac89fc063bf",
         quantity: 120,
       },
       {
-        ingredient: "red pepper object id",
+        ingredient: "red pepper 662e5824fda19ac89fc063c3",
         quantity: 320,
       },
       {
-        ingredient: "pineapple object id",
+        ingredient: "pineapple 66297d3d5b2f8d97b40a61c4",
         quantity: 227,
       },
       {
-        ingredient: "sugar snap peas object id",
+        ingredient: "sugar snap peas 662e5874fda19ac89fc063ca",
         quantity: 100,
       },
     ],
@@ -223,55 +223,55 @@ const sampleRecipe = new Recipe({
     name: "Fish Soup",
     ingredients: [
       {
-        ingredient: "cooking oil object id",
+        ingredient: "cooking oil 662e58b2fda19ac89fc063ce",
         quantity: 15,
       },
       {
-        ingredient: "onion object id",
+        ingredient: "onion 662e57fdfda19ac89fc063bf",
         quantity: 170,
       },
       {
-        ingredient: "garlic clove object id",
+        ingredient: "garlic clove 662feee2329efd208bcfacc1",
         quantity: 5,
       },
       {
-        ingredient: "potato object id",
+        ingredient: "potato 662e5909fda19ac89fc063d5",
         quantity: 250,
       },
       {
-        ingredient: "carrot object id",
+        ingredient: "carrot 66297db2f6ef533ec7744f8a",
         quantity: 250,
       },
       {
-        ingredient: "pepper object id",
+        ingredient: "pepper 662e5937fda19ac89fc063dc",
         quantity: 160,
       },
       {
-        ingredient: "leek object id",
+        ingredient: "leek 662e595afda19ac89fc063e0",
         quantity: 200,
       },
       {
-        ingredient: "tomato object id",
+        ingredient: "tomato 662e5978fda19ac89fc063e4",
         quantity: 15,
       },
       {
-        ingredient: "vegetable stock object id",
+        ingredient: "vegetable stock 662e5995fda19ac89fc063e8",
         quantity: 1250,
       },
       {
-        ingredient: "bay leaf object id",
+        ingredient: "bay leaf 662e59bffda19ac89fc063ec",
         quantity: 5,
       },
       {
-        ingredient: "dill object id",
+        ingredient: "dill 662e59e4fda19ac89fc063f0",
         quantity: 10,
       },
       {
-        ingredient: "fish fillet object id",
+        ingredient: "fish fillet 662e5a10fda19ac89fc063f4",
         quantity: 400,
       },
       {
-        ingredient: "lemon object id",
+        ingredient: "lemon 662e5a25fda19ac89fc063f8",
         quantity: 60,
       },
     ],
