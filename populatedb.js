@@ -20,18 +20,21 @@ db.once("open", async () => {
   const ingredients = [
   ];
 
-const sampleRecipe = new Recipe({
+  const recipe1 = new Recipe({
   name: "Spaghetti Carbonara",
   ingredients: [
     {
-      ingredient: "ingredientname1 object id",
+      ingredient: "66297d024aa6f32fa0389ea0",
       quantity: 200,
     },
     {
-      ingredient: "ingredientname2 object id",
+      ingredient: "66146c636ba443c4e4997ded",
       quantity: 100,
     },
-    // Add more ingredients as needed
+    {
+      ingredient: "662feee2329efd208bcfacc1",
+      quantity: 50,
+    },
   ],
   instructions: [
     "Cook spaghetti according to package directions.",
@@ -47,255 +50,11 @@ const sampleRecipe = new Recipe({
     servings: 4,
     prepTime: 10,
     cookTime: 15,
-    image: "spaghetti_carbonara.jpg",
+    image: "SpaghettiCarbonara.jpg",
   },
-
-  name: "Ham Sandwich",
-    ingredients: [
-      {
-        ingredient: "mustard 662e53fefda19ac89fc0636d",
-        quantity: 10,
-      },
-      {
-        ingredient: "mayonnaise 66146c636ba443c4e4997df9",
-        quantity: 10,
-      },
-      {
-        ingredient: "white bread 662e5472fda19ac89fc06373",
-        quantity: 80,
-      },
-      {
-        ingredient: "ham 662e54a9fda19ac89fc06377",
-        quantity: 60,
-      },
-      {
-        ingredient: "cheese 66146c636ba443c4e4997ded",
-        quantity: 50,
-      },
-      {
-        ingredient: "egg 662e552ffda19ac89fc06382",
-        quantity: 60,
-      },
-      {
-        ingredient: "milk 66146c636ba443c4e4997deb",
-        quantity: 30,
-      },
-      {
-        ingredient: "butter 66297db2f6ef533ec7744f8b",
-        quantity: 30,
-      },
-    ],
-    instructions: [
-      "Mix the mustard and mayo in a small bowl, then spread over each slice of bread.",
-      "Top one slice with the ham and cheese, then sandwich with the remaining slice of bread.",
-      "Whisk the egg and milk in a wide, shallow bowl or dish.",
-      "Soak the sandwich in the egg mixture, leaving for a few minutes on each side until all the egg has been absorbed by the bread.",
-      "Melt the butter in a frying pan.",
-      "When it is sizzling, add the sandwich and cook for 4-5 mins on each side until golden brown.",
-      "If you have a sandwich or burger press, use this to weigh the sandwich down.",
-      "If not, place a heavy lid on top to compress the sandwich and help melt the cheese.",
-      "Cut in half to serve.",
-    ],
-    info: {
-      cuisine: "Continental",
-      type: "Main Dish",
-      servings: 1,
-      prepTime: 10,
-      cookTime: 10,
-      image: "ham_sandwich.jpg",
-    },
-
-    name: "Chocolate Fudge Cake",
-    ingredients: [
-      {
-        ingredient: "sunflower oil 662e5605fda19ac89fc0638c",
-        quantity: 150,
-      },
-      {
-        ingredient: "flour 662e5625fda19ac89fc06390",
-        quantity: 175,
-      },
-      {
-        ingredient: "cocoa powder 662e5644fda19ac89fc06394",
-        quantity: 70,
-      },
-      {
-        ingredient: "baking soda 662e5662fda19ac89fc06398",
-        quantity: 5,
-      },
-      {
-        ingredient: "sugar 662e5686fda19ac89fc0639c",
-        quantity: 375,
-      },
-      {
-        ingredient: "golden syrup 662e56b6fda19ac89fc063a0",
-        quantity: 30,
-      },
-      {
-        ingredient: "egg 662e552ffda19ac89fc06382",
-        quantity: 2,
-      },
-      {
-        ingredient: "milk 66146c636ba443c4e4997deb",
-        quantity: 200,
-      },
-      {
-        ingredient: "butter 66297db2f6ef533ec7744f8b",
-        quantity: 100,
-      },
-    ],
-    instructions: [
-      "Heat the oven to 180C/160C fan/gas 4.",
-      "Oil and line the base of two 18cm sandwich tins.",
-      "Sieve the flour, cocoa powder and bicarbonate of soda into a bowl.",
-      "Add the caster sugar and mix well.",
-      "Make a well in the centre and add the golden syrup, eggs, sunflower oil and milk. ",
-      "Beat well with an electric whisk until smooth.",
-      "Pour the mixture into the two tins and bake for 25-30 mins until risen and firm to the touch.",
-      "Remove from oven, leave to cool for 10 mins before turning out onto a cooling rack.",
-      "To make the icing, beat the unsalted butter in a bowl until soft.",
-      "Gradually sieve and beat in the icing sugar and cocoa powder, then add enough of the milk to make the icing fluffy and spreadable.",
-      "Sandwich the two cakes together with the butter icing and cover the sides and the top of the cake with more icing.",
-    ],
-    info: {
-      cuisine: "Continental",
-      type: "Dessert",
-      servings: 8,
-      prepTime: 25,
-      cookTime: 30,
-      image: "chocolate_fudge_cake.jpg",
-    },
-
-    name: "Sweet Sour Chicken",
-    ingredients: [
-      {
-        ingredient: "tomato ketchup 662e5738fda19ac89fc063ad",
-        quantity: 135,
-      },
-      {
-        ingredient: "vinegar 662e575efda19ac89fc063b1",
-        quantity: 45,
-      },
-      {
-        ingredient: "sugar 662e5686fda19ac89fc0639c",
-        quantity: 60,
-      },
-      {
-        ingredient: "garlic clove 662feee2329efd208bcfacc1",
-        quantity: 20,
-      },
-      {
-        ingredient: "chicken 66146c636ba443c4e4997de9",
-        quantity: 800,
-      },
-      {
-        ingredient: "onion 662e57fdfda19ac89fc063bf",
-        quantity: 120,
-      },
-      {
-        ingredient: "red pepper 662e5824fda19ac89fc063c3",
-        quantity: 320,
-      },
-      {
-        ingredient: "pineapple 66297d3d5b2f8d97b40a61c4",
-        quantity: 227,
-      },
-      {
-        ingredient: "sugar snap peas 662e5874fda19ac89fc063ca",
-        quantity: 100,
-      },
-    ],
-    instructions: [
-      "In a large microwaveable dish, mix the ketchup, vinegar, sugar and garlic thoroughly with the chicken, onion and peppers.",
-      "Microwave, uncovered, on high for 8-10 mins until the chicken is starting to cook and the sauce is sizzling.",
-      "Stir in the pineapple pieces and sugar snap peas and return to the microwave for another 3-5 mins until the chicken is completely cooked.",
-      "Leave to stand for a few minutes, and serve.",
-    ],
-    info: {
-      cuisine: "Oriental",
-      type: "Main Dish",
-      servings: 4,
-      prepTime: 10,
-      cookTime: 15,
-      image: "sweet_sour_chicken.jpg",
-    },
-
-    name: "Fish Soup",
-    ingredients: [
-      {
-        ingredient: "cooking oil 662e58b2fda19ac89fc063ce",
-        quantity: 15,
-      },
-      {
-        ingredient: "onion 662e57fdfda19ac89fc063bf",
-        quantity: 170,
-      },
-      {
-        ingredient: "garlic clove 662feee2329efd208bcfacc1",
-        quantity: 5,
-      },
-      {
-        ingredient: "potato 662e5909fda19ac89fc063d5",
-        quantity: 250,
-      },
-      {
-        ingredient: "carrot 66297db2f6ef533ec7744f8a",
-        quantity: 250,
-      },
-      {
-        ingredient: "pepper 662e5937fda19ac89fc063dc",
-        quantity: 160,
-      },
-      {
-        ingredient: "leek 662e595afda19ac89fc063e0",
-        quantity: 200,
-      },
-      {
-        ingredient: "tomato 662e5978fda19ac89fc063e4",
-        quantity: 15,
-      },
-      {
-        ingredient: "vegetable stock 662e5995fda19ac89fc063e8",
-        quantity: 1250,
-      },
-      {
-        ingredient: "bay leaf 662e59bffda19ac89fc063ec",
-        quantity: 5,
-      },
-      {
-        ingredient: "dill 662e59e4fda19ac89fc063f0",
-        quantity: 10,
-      },
-      {
-        ingredient: "fish fillet 662e5a10fda19ac89fc063f4",
-        quantity: 400,
-      },
-      {
-        ingredient: "lemon 662e5a25fda19ac89fc063f8",
-        quantity: 60,
-      },
-    ],
-    instructions: [
-      "Heat the oil in a large saucepan over a medium heat and cook the onion for 5-7 mins until beginning to soften.",
-      "Mix in the garlic, potatoes, carrots, peppers, leeks and tomato purée, and cook for 3-5 mins more.",
-      "Pour in the vegetables and stir in the bay leaf.",
-      "Bring to a simmer, then cover and cook for 15 mins until the veg is almost tender.",
-      "Finely chop most of the dill, reserving a few whole sprigs.",
-      "Cut the fish into bite-sized pieces and season with salt, pepper and a bit of the lemon juice.",
-      "Add the fish to the soup along with a pinch of the lemon zest and the chopped dill.",
-      "Simmer gently over a low heat for 5-7 mins until the fish is cooked through.",
-      "Remove the bay leaf and season the soup to taste, adding more lemon juice or zest, if needed.",
-      "Scatter over the reserved dill springs to serve.",
-    ],
-    info: {
-      cuisine: "Seafood",
-      type: "Main Dish",
-      servings: 4,
-      prepTime: 20,
-      cookTime: 40,
-      image: "fish_soup.jpg",
-    },
 });
+
+const sampleRecipe = [recipe1]
 
   // Sample recipes
 Recipe.create(sampleRecipe)
@@ -303,7 +62,7 @@ Recipe.create(sampleRecipe)
   .catch((err)=>console.error(err));
   
   // Insert sample data into the database
-  Ingredient.insertMany(ingredients)
+  Ingredient.insertMany(sampleRecipe)
     .then(() => console.log("Sample data inserted successfully"))
     .catch((err) => console.error(err));
   console.log("Database populated successfully");
