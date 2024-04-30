@@ -91,25 +91,10 @@ exports.cupboardPost = asyncHandler(async (req, res, next) => {
   console.log(ingredientIds);
 
   const potentialRecipes = await Recipe.find({
-    ingredients: {
-      $elemMatch: {
-        ingredient: { $in: ingredientIds.map((ingredient) => ingredient._id) },
-      },
+    "ingredients._id": {
+      $all: ingredientIds.map((ingredient) => ingredient._id),
     },
   });
 
-  console.log(potentialRecipes);
-
-  const userRecipes = potentialRecipes.filter((recipe) => {
-    const recipeIngredientNames = recipe.ingredients.map(
-      (ingredient) => ingredient.ingredient.name
-    );
-    return ingredient_names.every((userIngredient) =>
-      recipeIngredientNames.includes(userIngredient)
-    );
-  });
-
-  console.log("user recipes user controller: ", userRecipes);
-  console.log(userRecipes.length);
   res.render("recipes", { recipes: potentialRecipes });
 });
