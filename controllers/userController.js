@@ -79,10 +79,37 @@ exports.cupboardGet = asyncHandler(async (req, res, next) => {
 });
 
 exports.cupboardPost = asyncHandler(async (req, res, next) => {
+  console.log("cupboard post");
   const ingredient_names = req.body.ingredient_names;
-  const user_recipes = await Recipe.find({
-    "ingredients.ingredient.name": { $all: ingredient_names },
-  }).exec();
-  console.log("user recipes user controller: " + user_recipes);
-  res.render("recipes", { recipes: user_recipes });
+  console.log(ingredient_names);
+
+  // 1. Get Ingredient ObjectIds based on names
+  const ingredientIds = await Ingredient.find({
+    name: { $in: ingredient_names },
+  }).select("_id");
+
+  console.log(ingredientIds);
+
+  const potentialRecipes = await Recipe.find({
+    ingredients: {
+      $elemMatch: {
+        ingredient: { $in: ingredientIds.map((ingredient) => ingredient._id) },
+      },
+    },
+  });
+
+  console.log(potentialRecipes);
+
+  const userRecipes = potentialRecipes.filter((recipe) => {
+    const recipeIngredientNames = recipe.ingredients.map(
+      (ingredient) => ingredient.ingredient.name
+    );
+    return ingredient_names.every((userIngredient) =>
+      recipeIngredientNames.includes(userIngredient)
+    );
+  });
+
+  console.log("user recipes user controller: ", userRecipes);
+  console.log(userRecipes.length);
+  res.render("recipes", { recipes: potentialRecipes });
 });
