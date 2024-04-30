@@ -26,30 +26,33 @@
         <img src="/img/adjustments.svg" alt="Search Adjustments" />
       </button>
     </div>
-
-    <div>
       <h1><%= recipe.name %></h1>
-      <p><strong>Cuisine:</strong> <%= recipe.info.cuisine %></p>
-      <p><strong>Type:</strong> <%= recipe.info.type %></p>
-      <p><strong>Servings:</strong> <%= recipe.info.servings %></p>
-      <p><strong>Time:</strong> <%= recipe.info.time %> minutes</p>
-      <h2>Ingredients</h2>
-      <ul>
-        <% recipe.populatedIngredients.forEach(recipe_ingredient => { %>
-        <li>
-          <%= recipe_ingredient.quantity %> <%=
-          recipe_ingredient.ingredient.unit %> <%=
-          recipe_ingredient.ingredient.name %>
-        </li>
-        <% }); %>
-      </ul>
-      <h2>Instructions</h2>
-      <ol>
-        <% recipe.instructions.forEach(instruction => { %>
-        <li><%= instruction %></li>
-        <% }); %>
-      </ol>
-    </div>
+      <div class = "RecipeInfo">
+        <p><strong>Cuisine:</strong> <%= recipe.info.cuisine %></p>
+        <p><strong>Type:</strong> <%= recipe.info.type %></p>
+        <p><strong>Servings:</strong> <%= recipe.info.servings %></p>
+        <p><strong>Time:</strong> <%= recipe.info.time %> minutes</p>
+      </div>
+      <img src="/img/<%=recipe.info.image%>"  class = "RecipeImg" alt="Recipe Image" />
+    
+      <div class = "CookingInstructions">
+        <h2>Ingredients</h2>
+        <ul>
+          <% recipe.populatedIngredients.forEach(recipe_ingredient => { %>
+          <li>
+            <%= recipe_ingredient.quantity %> <%=
+            recipe_ingredient.ingredient.unit %> <%=
+            recipe_ingredient.ingredient.name %>
+          </li>
+          <% }); %>
+        </ul>
+        <h2>Instructions</h2>
+        <ol>
+          <% recipe.instructions.forEach(instruction => { %>
+          <li><%= instruction %></li>
+          <% }); %>
+        </ol>
+      </div>
 
     </main>
   </body>

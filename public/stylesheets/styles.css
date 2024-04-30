@@ -232,8 +232,6 @@ input[type="text"]{
 
 .RecipeInfo {
   float: left; /* make the information float to the left */
-  width: calc(100% - 210px); /* assuming the image width will be around 200px, adjust as needed */
-  padding-right: 10px; /* some space between the info and the image */
 }
 
 .RecipeImg {
@@ -247,5 +245,9 @@ input[type="text"]{
 .RecipeContainer::after {
   content: "";
   display: table;
+  clear: both;
+}
+
+.CookingInstructions{
   clear: both;
 }
