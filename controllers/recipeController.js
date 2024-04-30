@@ -105,6 +105,7 @@ exports.recipeGetById = asyncHandler(async (req, res, next) => {
   try {
     const recipe = await Recipe.findById(req.params.id);
     const populatedRecipe = await populateIngredients(recipe);
+    console.log("populated recipe:", populatedRecipe);
 
     res.render("recipe_page", { recipe: populatedRecipe });
   } catch (error) {
