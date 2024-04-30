@@ -224,4 +224,28 @@ input[type="text"]{
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 4px;
   border-top-right-radius: 4px;
+  text-decoration-color: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: auto;
+}
+
+.RecipeInfo {
+  float: left; /* make the information float to the left */
+  width: calc(100% - 210px); /* assuming the image width will be around 200px, adjust as needed */
+  padding-right: 10px; /* some space between the info and the image */
+}
+
+.RecipeImg {
+  float: right; /* make the image float to the right */
+  height: 200px;
+  width: auto;
+  object-fit: cover;
+}
+
+/* Clear floats after the container */
+.RecipeContainer::after {
+  content: "";
+  display: table;
+  clear: both;
 }

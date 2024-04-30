@@ -29,13 +29,14 @@
       <% recipes.forEach(recipe => { %>
         <a href="<%= recipe.url %>" class ="RecipeLink">
           <div class = "RecipeContainer">
-            <p><%= recipe.name %></p>
+            <h4><%= recipe.name %></h4>
             <div class = "RecipeInfo">
               <p>This is information about the recipe</p>
               <p>Cuisine: <%= recipe.info.cuisine %></p>
               <p>Type: <%= recipe.info.type %></p>
               <p>Serves: <%= recipe.info.servings %></p>
             </div>
+            <img src="/img/<%=recipe.info.image%>"  class = "RecipeImg" alt="Recipe Image" />
           </div>
         </a>
       <% }); %>

@@ -24,7 +24,7 @@ db.once("open", async () => {
   name: "Spaghetti Carbonara",
   ingredients: [
     {
-      ingredient: "66297d024aa6f32fa0389ea0",
+      _id: "66297d024aa6f32fa0389ea0",
       quantity: 200,
     },
     {
