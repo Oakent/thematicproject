@@ -16,7 +16,7 @@ const limiter = RateLimit({
   windowMs: 1 * 10 * 1000,
   max: 10,
 });
-app.use(limiter);
+//app.use(limiter);
 
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
