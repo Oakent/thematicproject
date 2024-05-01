@@ -90,11 +90,18 @@ exports.cupboardPost = asyncHandler(async (req, res, next) => {
 
   console.log(ingredientIds);
 
-  const potentialRecipes = await Recipe.find({
-    "ingredients._id": {
-      $all: ingredientIds.map((ingredient) => ingredient._id),
-    },
-  });
+  // 2. Iterate through recipes and filter based on ingredient ObjectIds
+  const userRecipes = [];
+  for await (const recipe of await Recipe.find({})) {
+    const hasAllIngredients = recipe.ingredients.every((recipeIngredient) => {
+      return ingredientIds.some((userIngredientId) =>
+        userIngredientId._id.equals(recipeIngredient._id)
+      );
+    });
+    if (hasAllIngredients) {
+      userRecipes.push(recipe);
+    }
+  }
 
-  res.render("recipes", { recipes: potentialRecipes });
+  res.render("recipes", { recipes: userRecipes });
 });
