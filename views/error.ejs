@@ -1,3 +1,37 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/pico/css/pico.classless.min.css"/>
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <title><%= recipe.name %></title>
+  </head>
+
+  <body>
+    <main class = "Container">
+
+    <div class="NavBar">
+        <a href="/cupboard" >
+        <button type="button" class="NavBtn" id="settings">
+        <img src="/img/home.svg" alt="Home Button" />
+        </button>
+        </a>
+        <input type="text" placeholder="Search recipe for a recipe..." class="Search" id ="recipeSearch"/>
+        <button type="button" class="NavBtn" id="searchBtn">
+        <img src="/img/search.svg" alt="Search Button" />
+        </button>
+
+        <button type="button" class="NavBtn" id="searchAdj">
+        <img src="/img/adjustments.svg" alt="Search Adjustments" />
+        </button>
+    </div>
+
+    <h1><%= message %></h1>
+    <h2><%= error.status %></h2>
+    <pre><%= error.stack %></pre>
+
+    </main>
+  </body>
+</html>
+

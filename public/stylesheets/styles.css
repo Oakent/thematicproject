@@ -138,7 +138,7 @@ input[type="text"]{
 
 .IngredientGrid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 5px;
   transition: all 235ms ease-in-out;
   padding: 10px;
@@ -185,10 +185,38 @@ input[type="text"]{
   margin-top: 20px;
   color: #333;
   margin-bottom: 0px;
-  max-width: 60%;
-  margin-left: 20%;
-  margin-right: 20%;
   max-height: 30%;
+}
+
+.IngredientUpdate {
+  background-color: #fff;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black ;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  cursor: pointer;
+  transition: all 235ms ease-in-out;
+  border-bottom-right-radius: 12px 200px;
+  border-bottom-left-radius: 200px 15px;
+  border-top-right-radius: 180px 17px;
+  border-top-left-radius: 15px 200px;
+  margin-top: 20px;
+  color: #333;
+  margin-bottom: 0px;
+  max-height: 30%;
+}
+
+.RecipeSearchButtons{
+  margin-top: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+.RecipeSearchButtons button {
+  display: inline-block; /* make the buttons inline */
+  margin: 0 10px; /* add some space between the buttons */
+  box-sizing: border-box; /* include padding and border in the element's total width and height */
+  width: 45%;
 }
 
 .IngredientUpdate:hover {
@@ -239,6 +267,10 @@ input[type="text"]{
   height: 200px;
   width: auto;
   object-fit: cover;
+  border: 10px solid transparent; /* set the width and style of the border */
+  border-image: linear-gradient(to left, rgb(243, 219, 164), transparent); /* create a faded border */
+  border-image-slice: 1; /* apply the gradient to the border */
+  margin-right: 10px;
 }
 
 /* Clear floats after the container */
@@ -248,6 +280,25 @@ input[type="text"]{
   clear: both;
 }
 
-.CookingInstructions{
+.CookingIngredients{
   clear: both;
+  position: relative;
+}
+
+.CookingIngredients:before,
+.CookingIngredients:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1); /* color of the line */
+}
+
+.CookingIngredients:before {
+  top: -8px; /* position the line at the top */
+}
+
+.CookingIngredients:after {
+  bottom: -8px; /* position the line at the bottom */
 }
